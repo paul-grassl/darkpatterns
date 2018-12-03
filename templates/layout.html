@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if title %}
+        <title>Online Study - {{ title }}</title>
+    {% else %}
+        <title>Online Study</title>
+    {% endif %} </head>
+
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
