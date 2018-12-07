@@ -1,0 +1,29 @@
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+    margin-bottom: 5rem
+}
+
+div {
+    text-align: justify;
+    text-justify: inter-word;
+}
+/* Consent button for study on welcome page */
+.consent-button {
+
+    color: white;
+    background-color: #333333;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px 32px;
+    font-size: 16px;
+    border: 2px solid black;
+    -webkit-transition-duration: 0.1s; /* Safari */
+    transition-duration: 0.1s;
+}
+
+.consent-button:hover {
+  background-color: white;
+  color: black;
+}
