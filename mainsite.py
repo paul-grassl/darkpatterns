@@ -1,5 +1,10 @@
 from flask import Flask, render_template, url_for, redirect
+from questionnaires import DemographicsForm, PerceivedControlForm, DeliberationForm, PrivacyConcernsForm
 app = Flask(__name__)
+
+
+# At some point you will want to make this an environment variable
+app.config['SECRET_KEY'] = 'd0e4240e6fb74743016fed54800852f8'
 
 
 # Atm I'm just rendering templates directly. We will probably need to change
@@ -19,9 +24,29 @@ def newswebsite1():
     return render_template('newswebsite1_viral.html')
 
 
-@app.route("/questionnaire_control")
-def questionnaire_control():
-    return render_template('questionnaire_control.html', title='Questionnaire 1')
+# Route to our demographic information form
+@app.route("/demographics")
+def demographics():
+    form = DemographicsForm()
+    return render_template('demographics.html', title='Demographic Information', form=form)
+
+
+# Route to our demographic information form
+@app.route("/questionnaire1")
+def perceived_control():
+    form = PerceivedControlForm()
+    return render_template('perceived_control.html', title='Perceived Control', form=form)
+
+
+def deliberation():
+    form = DeliberationForm()
+    return render_template('deliberation.html', title='Deliberation', form=form)
+
+
+@app.route("/questionnaire2")
+def privacy_concerns():
+    form = PrivacyConcernsForm()
+    return render_template('privacy_concerns.html', title='Privacy Attitude', form=form)
 
 
 # This will run the application in debug mode by default, we may want to change
@@ -30,9 +55,4 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 # Next steps:
-# - Create a study index file which will show the consent statement for the
-# study
-# - Then change your folder system for the newswebsites so they are separate
-# from your RU-hosted templates (study index.html)
-# - Search for Survey html templates online for your (own) consent statement
-# and the questionnaires
+# - create the html files for your forms

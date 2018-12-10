@@ -11,7 +11,6 @@ div {
 }
 /* Consent button for study on welcome page */
 .consent-button {
-
     color: white;
     background-color: #333333;
     border-radius: 5px;
@@ -26,4 +25,12 @@ div {
 .consent-button:hover {
   background-color: white;
   color: black;
+}
+
+.questionnaire {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
 }
