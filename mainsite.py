@@ -55,4 +55,6 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 # Next steps:
-# - create the html files for your forms
+# - how to adjust DecimalRangeField in terms of width (not full screen) and
+# labeling on both sides (left,right)
+# - also think about the questionnaire class in your css what can be improved
