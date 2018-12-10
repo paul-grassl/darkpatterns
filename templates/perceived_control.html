@@ -1,10 +1,34 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <div class="container">
-        <div class="page-header">
-            <h1>Example Page Header</h1>      
-        </div>
-        <p>This is some text.</p>
-        <p>This is another text.</p>
+    <div class="questionnaire">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Questionnaire 1</legend>
+                <div class="form-group">
+                    {{ form.PerceivedControlQ1.label(class='form-control-label') }}
+                    {{ form.PerceivedControlQ1(class='form-control form-control-lg') }}
+                </div>
+                <div class="form-group">
+                    {{ form.PerceivedControlQ2.label(class='form-control-label') }}
+                    {{ form.PerceivedControlQ2(class='form-control form-control-lg') }}
+                </div>
+                <div class="form-group">
+                    {{ form.PerceivedControlQ3.label(class='form-control-label') }}
+                    {{ form.PerceivedControlQ3(class='form-control form-control-lg') }}
+                </div>
+                <div class="form-group">
+                    {{ form.PerceivedControlQ4.label(class='form-control-label') }}
+                    {{ form.PerceivedControlQ4(class='form-control form-control-lg') }}
+                </div>
+                <div class="form-group">
+                    {{ form.PerceivedControlQ5.label(class='form-control-label') }}
+                    {{ form.PerceivedControlQ5(class='form-control form-control-lg') }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.Submit(class='btn btn-outline-info') }}
+            </div>
+        </form>
     </div>
 {% endblock content %}

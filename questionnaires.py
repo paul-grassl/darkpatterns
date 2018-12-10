@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import RadioField, SubmitField, IntegerField, StringField
+from wtforms.fields.html5 import DecimalRangeField
 from wtforms.validators import DataRequired
 
 
@@ -23,29 +24,29 @@ class DemographicsForm(FlaskForm):
 
 
 class PerceivedControlForm(FlaskForm):
-    PerceivedControlQ1 = RadioField(
+    PerceivedControlQ1 = DecimalRangeField(
                         'How much control did you feel the consent form gave you over the amount of your personal information collected by the company?',
-                        choices=[('1', 'None at all'), ('2', ''), ('3', ''), ('4', ''), ('5', 'Complete')],
+                        default=50,
                         validators=[DataRequired()]
                         )
-    PerceivedControlQ2 = RadioField(
+    PerceivedControlQ2 = DecimalRangeField(
                         'How much control did you feel the consent form gave you over who can get access your personal information?',
-                        choices=[('1', 'None at all'), ('2', ''), ('3', ''), ('4', ''), ('5', 'Complete')],
+                        default=50,
                         validators=[DataRequired()]
                         )
-    PerceivedControlQ3 = RadioField(
+    PerceivedControlQ3 = DecimalRangeField(
                         'How much control did you feel the consent form gave you over your personal information that has been released?',
-                        choices=[('1', 'None at all'), ('2', ''), ('3', ''), ('4', ''), ('5', 'Complete')],
+                        default=50,
                         validators=[DataRequired()]
                         )
-    PerceivedControlQ4 = RadioField(
+    PerceivedControlQ4 = DecimalRangeField(
                         'How much control did you feel the consent form gave you over how your personal information is being used by the company?',
-                        choices=[('1', 'None at all'), ('2', ''), ('3', ''), ('4', ''), ('5', 'Complete')],
+                        default=50,
                         validators=[DataRequired()]
                         )
-    PerceivedControlQ5 = RadioField(
+    PerceivedControlQ5 = DecimalRangeField(
                         'Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
-                        choices=[('1', 'None at all'), ('2', ''), ('3', ''), ('4', ''), ('5', 'Complete')],
+                        default=50,
                         validators=[DataRequired()]
                         )
     Submit = SubmitField(
@@ -59,9 +60,9 @@ class DeliberationForm(FlaskForm):
                         choices=[('A', 'Agree'), ('DNA', 'Do Not Agree')],
                         validators=[DataRequired()]
                         )
-    Deliberation = RadioField(
+    Deliberation = DecimalRangeField(
                         'How much did you think about your decision before clicking on one option?',
-                        choices=[('1', 'None at all'), ('2', ''), ('3', ''), ('4', ''), ('5', 'A great deal')],
+                        default=50,
                         validators=[DataRequired()]
                         )
     Submit = SubmitField(
