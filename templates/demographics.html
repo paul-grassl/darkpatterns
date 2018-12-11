@@ -6,16 +6,46 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Demographic Information</legend>
                 <div class="form-group">
-                    {{ form.Gender.label(class='form-control-label') }}
-                    {{ form.Gender(class='form-control form-control-lg') }}
+                    {{ form.Gender.label(class='radio') }}
+
+                    {% if form.Gender.errors %}
+                       {{ form.Gender(class='radio is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Gender.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Gender(class='radio') }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.Age.label(class='form-control-label') }}
-                    {{ form.Age(class='form-control form-control-lg') }}
+
+                    {% if form.Age.errors %}
+                        {{ form.Age(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Age.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Age(class='form-control form-control-lg') }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.Nationality.label(class='form-control-label') }}
-                    {{ form.Nationality(class='form-control form-control-lg') }}
+
+                    {% if form.Nationality.errors %}
+                        {{ form.Nationality(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Nationality.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Nationality(class='form-control form-control-lg') }}
+                    {% endif %}
                 </div>
             </fieldset>
             <div class="form-group">

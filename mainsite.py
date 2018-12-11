@@ -25,7 +25,7 @@ def newswebsite1():
 
 
 # Route to our demographic information form
-@app.route("/demographics")
+@app.route("/demographics", methods=['GET', 'POST'])
 def demographics():
     form = DemographicsForm()
     return render_template('demographics.html', title='Demographic Information', form=form)
@@ -57,4 +57,4 @@ if __name__ == '__main__':
 # Next steps:
 # - how to adjust DecimalRangeField in terms of width (not full screen) and
 # labeling on both sides (left,right)
-# - also think about the questionnaire class in your css what can be improved
+# - Radiofield, how to validate prpoerly and make horizontal

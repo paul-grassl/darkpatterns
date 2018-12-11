@@ -1,18 +1,18 @@
 from flask_wtf import FlaskForm
 from wtforms import RadioField, SubmitField, IntegerField, StringField
 from wtforms.fields.html5 import DecimalRangeField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, NumberRange, InputRequired
 
 
 class DemographicsForm(FlaskForm):
     Gender = RadioField(
                         'Gender',
                         choices=[('M', 'Male'), ('F', 'Female'), ('O', 'Other')],
-                        validators=[DataRequired()]
+                        validators=[InputRequired()]
                         )
     Age = IntegerField(
                         'Age',
-                        validators=[DataRequired()]
+                        validators=[DataRequired(), NumberRange(min=18, max=65)]
                         )
     Nationality = StringField(
                         'Nationality',
