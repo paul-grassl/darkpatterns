@@ -5,9 +5,11 @@
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Questionnaire 1</legend>
+                <p>Please answer the following questions in light of the presented screenshot: </p>
+                <h5>Part 1</h5>
                 <div class="form-group">
                     {{ form.PerceivedControlQ1.label(class='form-control-label') }}
-                    {{ form.PerceivedControlQ1(class='form-control form-control-lg') }}
+                    {{ form.PerceivedControlQ1(class='range-field my-4 w-75') }}
                 </div>
                 <div class="form-group">
                     {{ form.PerceivedControlQ2.label(class='form-control-label') }}
@@ -24,6 +26,17 @@
                 <div class="form-group">
                     {{ form.PerceivedControlQ5.label(class='form-control-label') }}
                     {{ form.PerceivedControlQ5(class='form-control form-control-lg') }}
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <h5>Part 2</h5>
+                <div class="form-group">
+                    {{ form.ManipulationCheck.label(class='form-control-label') }}
+                    {{ form.ManipulationCheck(class='radio') }}
+                </div>
+                <div class="form-group">
+                    {{ form.Deliberation.label(class='form-control-label') }}
+                    {{ form.Deliberation(class='form-control form-control-lg') }}
                 </div>
             </fieldset>
             <div class="form-group">

@@ -12,7 +12,7 @@ class DemographicsForm(FlaskForm):
                         )
     Age = IntegerField(
                         'Age',
-                        validators=[DataRequired(), NumberRange(min=18, max=65)]
+                        validators=[InputRequired(), NumberRange(min=18, max=65, message='You must be between 18 and 65 years old to participate in the study')]
                         )
     Nationality = StringField(
                         'Nationality',
@@ -23,45 +23,39 @@ class DemographicsForm(FlaskForm):
                         )
 
 
-class PerceivedControlForm(FlaskForm):
+class ControlAndDeliberationForm(FlaskForm):
     PerceivedControlQ1 = DecimalRangeField(
-                        'How much control did you feel the consent form gave you over the amount of your personal information collected by the company?',
+                        '1. How much control did you feel the consent form gave you over the amount of your personal information collected by the company?',
                         default=50,
                         validators=[DataRequired()]
                         )
     PerceivedControlQ2 = DecimalRangeField(
-                        'How much control did you feel the consent form gave you over who can get access your personal information?',
+                        '2. How much control did you feel the consent form gave you over who can get access your personal information?',
                         default=50,
                         validators=[DataRequired()]
                         )
     PerceivedControlQ3 = DecimalRangeField(
-                        'How much control did you feel the consent form gave you over your personal information that has been released?',
+                        '3. How much control did you feel the consent form gave you over your personal information that has been released?',
                         default=50,
                         validators=[DataRequired()]
                         )
     PerceivedControlQ4 = DecimalRangeField(
-                        'How much control did you feel the consent form gave you over how your personal information is being used by the company?',
+                        '4. How much control did you feel the consent form gave you over how your personal information is being used by the company?',
                         default=50,
                         validators=[DataRequired()]
                         )
     PerceivedControlQ5 = DecimalRangeField(
-                        'Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
+                        '5. Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
                         default=50,
                         validators=[DataRequired()]
                         )
-    Submit = SubmitField(
-                        'Next'
-                        )
-
-
-class DeliberationForm(FlaskForm):
     ManipulationCheck = RadioField(
-                        'Which option did you choose?',
+                        '1. Which option did you choose?',
                         choices=[('A', 'Agree'), ('DNA', 'Do Not Agree')],
                         validators=[DataRequired()]
                         )
     Deliberation = DecimalRangeField(
-                        'How much did you think about your decision before clicking on one option?',
+                        '2. How much did you think about your decision before clicking on one option?',
                         default=50,
                         validators=[DataRequired()]
                         )
@@ -72,17 +66,17 @@ class DeliberationForm(FlaskForm):
 
 class PrivacyConcernsForm(FlaskForm):
     PrivacyConcernsQ1 = RadioField(
-                        'Compared to others I’m more sensitive about the way online companies handle my personal information',
+                        '1. Compared to others I’m more sensitive about the way online companies handle my personal information',
                         choices=[('1', 'Strongly Disagree'), ('2', ''), ('3', ''), ('4', ''), ('5', ''), ('6', ''), ('7', 'Strongly Agree')],
                         validators=[DataRequired()]
                         )
     PrivacyConcernsQ2 = RadioField(
-                        'To me, it is the most important thing to keep my privacy intact from online companies',
+                        '2. To me, it is the most important thing to keep my privacy intact from online companies',
                         choices=[('1', 'Strongly Disagree'), ('2', ''), ('3', ''), ('4', ''), ('5', ''), ('6', ''), ('7', 'Strongly Agree')],
                         validators=[DataRequired()]
                         )
     PrivacyConcernsQ3 = RadioField(
-                        'I’m concerned about threats to my personal privacy today',
+                        '3. I’m concerned about threats to my personal privacy today',
                         choices=[('1', 'Strongly Disagree'), ('2', ''), ('3', ''), ('4', ''), ('5', ''), ('6', ''), ('7', 'Strongly Agree')],
                         validators=[DataRequired()]
                         )

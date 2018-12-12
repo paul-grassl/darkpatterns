@@ -5,6 +5,8 @@
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Demographic Information</legend>
+                <p>First we would like to ask you for some general demographic information:</p>
+                <!-- GENDER -->
                 <div class="form-group">
                     {{ form.Gender.label(class='radio') }}
 
@@ -19,6 +21,7 @@
                         {{ form.Gender(class='radio') }}
                     {% endif %}
                 </div>
+                <!-- AGE -->
                 <div class="form-group">
                     {{ form.Age.label(class='form-control-label') }}
 
@@ -26,13 +29,14 @@
                         {{ form.Age(class='form-control form-control-lg is-invalid') }}
                         <div class="invalid-feedback">
                             {% for error in form.Age.errors %}
-                                <span>{{ error }}</span>
+                                <span>{{ error }}.</span>
                             {% endfor %}
                         </div>
                     {% else %}
                         {{ form.Age(class='form-control form-control-lg') }}
                     {% endif %}
                 </div>
+                <!-- NATIONALITY -->
                 <div class="form-group">
                     {{ form.Nationality.label(class='form-control-label') }}
 
