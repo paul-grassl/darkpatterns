@@ -34,15 +34,17 @@ def demographics():
 
 
 # route to perceived control and deliberation form
-@app.route("/questionnaire1")
+@app.route("/questionnaire1", methods=['GET', 'POST'])
 def control_and_deliberation():
     form = ControlAndDeliberationForm()
+    if form.validate_on_submit():
+        return redirect(url_for())
     return render_template('control_and_deliberation.html', title='Control and deliberation', form=form)
 
 
 # route to privacy concerns form
 # the redirect link needs to be back to SONA in the end
-@app.route("/questionnaire2")
+@app.route("/questionnaire2", methods=['GET', 'POST'])
 def privacy_concerns():
     form = PrivacyConcernsForm()
     if form.validate_on_submit():

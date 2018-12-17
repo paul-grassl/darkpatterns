@@ -9,47 +9,26 @@
                 <!-- GENDER -->
                 <div class="form-group">
                     {{ form.Gender.label(class='radio') }}
-
-                    {% if form.Gender.errors %}
-                       {{ form.Gender(class='radio is-invalid') }}
-                        <div class="invalid-feedback">
-                            {% for error in form.Gender.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.Gender(class='radio') }}
-                    {% endif %}
+                    {{ form.Gender(class='radio') }}
+                    {% for error in form.Gender.errors %}
+                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {% endfor %}
                 </div>
                 <!-- AGE -->
                 <div class="form-group">
                     {{ form.Age.label(class='form-control-label') }}
-
-                    {% if form.Age.errors %}
-                        {{ form.Age(class='form-control form-control-lg is-invalid') }}
-                        <div class="invalid-feedback">
-                            {% for error in form.Age.errors %}
-                                <span>{{ error }}.</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.Age(class='form-control form-control-lg') }}
-                    {% endif %}
+                    {{ form.Age(class='form-control form-control-lg') }}
+                    {% for error in form.Age.errors %}
+                        <span style="color: #d60000; font-size: 14px">{{ error }}.</span>
+                    {% endfor %}
                 </div>
                 <!-- NATIONALITY -->
                 <div class="form-group">
                     {{ form.Nationality.label(class='form-control-label') }}
-
-                    {% if form.Nationality.errors %}
-                        {{ form.Nationality(class='form-control form-control-lg is-invalid') }}
-                        <div class="invalid-feedback">
-                            {% for error in form.Nationality.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.Nationality(class='form-control form-control-lg') }}
-                    {% endif %}
+                    {{ form.Nationality(class='form-control form-control-lg') }}
+                    {% for error in form.Nationality.errors %}
+                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {% endfor %}
                 </div>
             </fieldset>
             <div class="form-group">

@@ -16,7 +16,7 @@ class DemographicsForm(FlaskForm):
                         )
     Nationality = StringField(
                         'Nationality',
-                        validators=[DataRequired()]
+                        validators=[InputRequired()]
                         )
     Submit = SubmitField(
                         'Next'
@@ -52,7 +52,7 @@ class ControlAndDeliberationForm(FlaskForm):
     ManipulationCheck = RadioField(
                         '1. Which option did you choose?',
                         choices=[('A', 'Agree'), ('DNA', 'Do Not Agree')],
-                        validators=[DataRequired()]
+                        validators=[InputRequired()]
                         )
     Deliberation = DecimalRangeField(
                         '2. How much did you think about your decision before clicking on one option?',
@@ -67,18 +67,18 @@ class ControlAndDeliberationForm(FlaskForm):
 class PrivacyConcernsForm(FlaskForm):
     PrivacyConcernsQ1 = RadioField(
                         '1. Compared to others I’m more sensitive about the way online companies handle my personal information',
-                        choices=[('1', 'Strongly Disagree'), ('2', ''), ('3', ''), ('4', ''), ('5', ''), ('6', ''), ('7', 'Strongly Agree')],
-                        validators=[DataRequired()]
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat disagree'), ('4', 'Neither agree nor disagree'), ('5', 'Somewhat agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
+                        validators=[InputRequired()]
                         )
     PrivacyConcernsQ2 = RadioField(
                         '2. To me, it is the most important thing to keep my privacy intact from online companies',
-                        choices=[('1', 'Strongly Disagree'), ('2', ''), ('3', ''), ('4', ''), ('5', ''), ('6', ''), ('7', 'Strongly Agree')],
-                        validators=[DataRequired()]
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat disagree'), ('4', 'Neither agree nor disagree'), ('5', 'Somewhat agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
+                        validators=[InputRequired()]
                         )
     PrivacyConcernsQ3 = RadioField(
                         '3. I’m concerned about threats to my personal privacy today',
                         choices=[('1', 'Strongly Disagree'), ('2', ''), ('3', ''), ('4', ''), ('5', ''), ('6', ''), ('7', 'Strongly Agree')],
-                        validators=[DataRequired()]
+                        validators=[InputRequired()]
                         )
     Submit = SubmitField(
                         'Next'
