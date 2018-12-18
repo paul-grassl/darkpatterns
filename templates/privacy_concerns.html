@@ -5,39 +5,34 @@
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Questionnaire 2</legend>
-                <p>For each statement, please indicate how much it applies to you, ranging from 1 (strongly disagree) 7 (strongly agree).</p>
+                <p>For each statement, please indicate how much it applies to you, ranging from 1 (strongly agree) to 7 (strongly disagree):</p>
                 <!-- QUESTION 1 -->
                 <div class="form-group">
-                    {{ form.PrivacyConcernsQ1.label }}
-                    {{ form.PrivacyConcernsQ1 }}
-                    {% for error in form.PrivacyConcernsQ1.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.privacyConcernsQ1.label }}
+                    {{ form.privacyConcernsQ1 }}
+                    {% for error in form.privacyConcernsQ1.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
                 <!-- QUESTION 2 -->
                 <div class="form-group">
-                    {{ form.PrivacyConcernsQ2.label }}
-                    {% for subfield in form.PrivacyConcernsQ2 %}
-                    <tr>
-                        <td>{{ subfield }}</td>
-                        <td>{{ subfield.label }}</td>
-                    </tr>
-                    {% endfor %}
-                    {% for error in form.PrivacyConcernsQ2.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.privacyConcernsQ2.label }}
+                    {{ form.privacyConcernsQ2 }}
+                    {% for error in form.privacyConcernsQ2.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
                 <!-- QUESTION 3 -->
                 <div class="form-group">
-                    {{ form.PrivacyConcernsQ3.label }}
-                    {{ form.PrivacyConcernsQ3 }}
-                    {% for error in form.PrivacyConcernsQ3.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.privacyConcernsQ3.label }}
+                    {{ form.privacyConcernsQ3 }}
+                    {% for error in form.privacyConcernsQ3.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.Submit(class='btn btn-outline-info') }}
+                {{ form.submit(class='btn btn-outline-info') }}
             </div>
         </form>
     </div>

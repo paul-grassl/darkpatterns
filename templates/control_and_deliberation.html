@@ -7,61 +7,68 @@
                 <legend class="border-bottom mb-4">Questionnaire 1</legend>
                 <p>Please answer the following questions in light of the presented screenshot: </p>
                 <h5>Part 1</h5>
+                <!-- QUESTION 1 (PART 1) -->
                 <div class="form-group">
-                    {{ form.PerceivedControlQ1.label }}
-                    {{ form.PerceivedControlQ1(class='range-field my-4 w-75') }}
-                    {% for error in form.PerceivedControlQ1.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.perceivedControlQ1.label }}<br>
+                    {{ form.perceivedControlQ1 }}
+                    {% for error in form.perceivedControlQ1.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
+                <!-- QUESTION 2 (PART 1) -->
                 <div class="form-group">
-                    {{ form.PerceivedControlQ2.label }}<br>
-                    {{ form.PerceivedControlQ2 }}
-                    {% for error in form.PerceivedControlQ2.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.perceivedControlQ2.label }}<br>
+                    {{ form.perceivedControlQ2 }}
+                    {% for error in form.perceivedControlQ2.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
+                <!-- QUESTION 3 (PART 1) -->
                 <div class="form-group">
-                    {{ form.PerceivedControlQ3.label }}
-                    {{ form.PerceivedControlQ3 }}
-                    {% for error in form.PerceivedControlQ3.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.perceivedControlQ3.label }}<br>
+                    {{ form.perceivedControlQ3 }}
+                    {% for error in form.perceivedControlQ3.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
+                <!-- QUESTION 4 (PART 1) -->
                 <div class="form-group">
-                    {{ form.PerceivedControlQ4.label }}
-                    {{ form.PerceivedControlQ4 }}
-                    {% for error in form.PerceivedControlQ4.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.perceivedControlQ4.label }}<br>
+                    {{ form.perceivedControlQ4 }}
+                    {% for error in form.perceivedControlQ4.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
+                <!-- QUESTION 5 (PART 1) -->
                 <div class="form-group">
-                    {{ form.PerceivedControlQ5.label }}
-                    {{ form.PerceivedControlQ5 }}
-                    {% for error in form.PerceivedControlQ5.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.perceivedControlQ5.label }}<br>
+                    {{ form.perceivedControlQ5 }}
+                    {% for error in form.perceivedControlQ5.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
             </fieldset>
             <fieldset class="form-group">
                 <h5>Part 2</h5>
+                <!-- QUESTION 1 (PART 2) -->
                 <div class="form-group">
-                    {{ form.ManipulationCheck.label }}
-                    {{ form.ManipulationCheck }}
-                    {% for error in form.ManipulationCheck.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.manipulationCheck.label }}
+                    {{ form.manipulationCheck }}
+                    {% for error in form.manipulationCheck.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
+                <!-- QUESTION 2 (PART 2) -->
                 <div class="form-group">
-                    {{ form.Deliberation.label }}
-                    {{ form.Deliberation }}
-                    {% for error in form.Deliberation.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.deliberation.label }}<br>
+                    {{ form.deliberation }}
+                    {% for error in form.deliberation.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.Submit(class='btn btn-outline-info') }}
+                {{ form.submit(class='btn btn-outline-info') }}
             </div>
         </form>
     </div>

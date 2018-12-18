@@ -5,10 +5,6 @@ body {
     margin-bottom: 5rem
 }
 
-div {
-    text-align: justify;
-    text-justify: inter-word;
-}
 /* Consent button for study on welcome page */
 .consent-button {
     color: white;

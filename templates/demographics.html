@@ -6,33 +6,33 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Demographic Information</legend>
                 <p>First we would like to ask you for some general demographic information:</p>
-                <!-- GENDER -->
+                <!-- QUESTION 1 (GENDER) -->
                 <div class="form-group">
-                    {{ form.Gender.label(class='radio') }}
-                    {{ form.Gender(class='radio') }}
-                    {% for error in form.Gender.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.gender.label(class='radio') }}
+                    {{ form.gender(class='radio') }}
+                    {% for error in form.gender.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
-                <!-- AGE -->
+                <!-- QUESTION 2 (AGE) -->
                 <div class="form-group">
-                    {{ form.Age.label(class='form-control-label') }}
-                    {{ form.Age(class='form-control form-control-lg') }}
-                    {% for error in form.Age.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}.</span>
+                    {{ form.age.label(class='form-control-label') }}
+                    {{ form.age(class='form-control form-control-lg') }}
+                    {% for error in form.age.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}.</span>
                     {% endfor %}
                 </div>
-                <!-- NATIONALITY -->
+                <!-- QUESTION 3 (NATIONALITY) -->
                 <div class="form-group">
-                    {{ form.Nationality.label(class='form-control-label') }}
-                    {{ form.Nationality(class='form-control form-control-lg') }}
-                    {% for error in form.Nationality.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                    {{ form.nationality.label(class='form-control-label') }}
+                    {{ form.nationality(class='form-control form-control-lg') }}
+                    {% for error in form.nationality.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.Submit(class='btn btn-outline-info') }}
+                {{ form.submit(class='btn btn-outline-info') }}
             </div>
         </form>
     </div>

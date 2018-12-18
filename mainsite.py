@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, redirect
-from questionnaires import DemographicsForm, ControlAndDeliberationForm, PrivacyConcernsForm
+from questionnaires import demographicsForm, controlAndDeliberationForm, privacyConcernsForm
 app = Flask(__name__)
 
 
@@ -20,14 +20,14 @@ def welcome():
 
 
 @app.route("/newswebsite1")
-def newswebsite1():
+def newsWebsite1():
     return render_template('newswebsite1_viral.html')
 
 
 # route to our demographic information form
 @app.route("/demographics", methods=['GET', 'POST'])
 def demographics():
-    form = DemographicsForm()
+    form = demographicsForm()
     if form.validate_on_submit():
         return redirect(url_for())
     return render_template('demographics.html', title='Demographic Information', form=form)
@@ -35,8 +35,8 @@ def demographics():
 
 # route to perceived control and deliberation form
 @app.route("/questionnaire1", methods=['GET', 'POST'])
-def control_and_deliberation():
-    form = ControlAndDeliberationForm()
+def controlAndDeliberation():
+    form = controlAndDeliberationForm()
     if form.validate_on_submit():
         return redirect(url_for())
     return render_template('control_and_deliberation.html', title='Control and deliberation', form=form)
@@ -45,8 +45,8 @@ def control_and_deliberation():
 # route to privacy concerns form
 # the redirect link needs to be back to SONA in the end
 @app.route("/questionnaire2", methods=['GET', 'POST'])
-def privacy_concerns():
-    form = PrivacyConcernsForm()
+def privacyConcerns():
+    form = privacyConcernsForm()
     if form.validate_on_submit():
         return redirect(url_for())
     return render_template('privacy_concerns.html', title='Privacy Attitude', form=form)
