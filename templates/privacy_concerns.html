@@ -11,28 +11,45 @@
                     {{ form.PrivacyConcernsQ1.label }}
                     {{ form.PrivacyConcernsQ1 }}
                     {% for error in form.PrivacyConcernsQ1.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
                 <!-- QUESTION 2 -->
                 <div class="form-group">
-                    {{ form.PrivacyConcernsQ2.label }}
-                    {% for subfield in form.PrivacyConcernsQ2 %}
-                    <tr>
-                        <td>{{ subfield }}</td>
-                        <td>{{ subfield.label }}</td>
-                    </tr>
-                    {% endfor %}
+                    {{ form.PrivacyConcernsQ2.label }}<br>
+                    <table>
+                        <tr>
+                        {% for subfield in form.PrivacyConcernsQ2 %}
+                            <td>{{ subfield }}</td>
+                        {% endfor %}
+                        </tr>
+                        <tr>
+                        {% for subfield in form.PrivacyConcernsQ2 %}
+                            <td>{{ subfield.label }}</td>
+                        {% endfor %}
+                        </tr>
+                    </table>
                     {% for error in form.PrivacyConcernsQ2.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
                 <!-- QUESTION 3 -->
                 <div class="form-group">
                     {{ form.PrivacyConcernsQ3.label }}
-                    {{ form.PrivacyConcernsQ3 }}
+                    <table>
+                        <tr>
+                        {% for subfield in form.PrivacyConcernsQ3 %}
+                            <td>{{ subfield }}</td>
+                        {% endfor %}
+                        </tr>
+                        <tr>
+                        {% for subfield in form.PrivacyConcernsQ3 %}
+                            <td>{{ subfield.label }}</td>
+                        {% endfor %}
+                        </tr>
+                    </table>
                     {% for error in form.PrivacyConcernsQ3.errors %}
-                        <span style="color: #d60000; font-size: 14px">{{ error }}</span>
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>
             </fieldset>
