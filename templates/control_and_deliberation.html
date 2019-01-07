@@ -10,7 +10,9 @@
                 <!-- QUESTION 1 (PART 1) -->
                 <div class="form-group">
                     {{ form.perceivedControlQ1.label }}<br>
-                    {{ form.perceivedControlQ1 }}
+                    <span>None at all</span>
+                    {{ form.perceivedControlQ1(oninput='outputUpdate(value)') }}
+                    <span>Complete</span>
                     {% for error in form.perceivedControlQ1.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -18,7 +20,9 @@
                 <!-- QUESTION 2 (PART 1) -->
                 <div class="form-group">
                     {{ form.perceivedControlQ2.label }}<br>
+                    <span>None at all</span>
                     {{ form.perceivedControlQ2 }}
+                    <span>Complete</span>
                     {% for error in form.perceivedControlQ2.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -26,7 +30,9 @@
                 <!-- QUESTION 3 (PART 1) -->
                 <div class="form-group">
                     {{ form.perceivedControlQ3.label }}<br>
+                    <span>None at all</span>
                     {{ form.perceivedControlQ3 }}
+                    <span>Complete</span>
                     {% for error in form.perceivedControlQ3.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -34,7 +40,9 @@
                 <!-- QUESTION 4 (PART 1) -->
                 <div class="form-group">
                     {{ form.perceivedControlQ4.label }}<br>
+                    <span>None at all</span>
                     {{ form.perceivedControlQ4 }}
+                    <span>Complete</span>
                     {% for error in form.perceivedControlQ4.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -42,7 +50,9 @@
                 <!-- QUESTION 5 (PART 1) -->
                 <div class="form-group">
                     {{ form.perceivedControlQ5.label }}<br>
+                    <span>None at all</span>
                     {{ form.perceivedControlQ5 }}
+                    <span>Complete</span>
                     {% for error in form.perceivedControlQ5.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -61,7 +71,9 @@
                 <!-- QUESTION 2 (PART 2) -->
                 <div class="form-group">
                     {{ form.deliberation.label }}<br>
+                    <span>None at all</span>
                     {{ form.deliberation }}
+                    <span>A great deal</span>
                     {% for error in form.deliberation.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
