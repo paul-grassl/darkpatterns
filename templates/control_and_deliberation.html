@@ -11,8 +11,14 @@
                 <div class="form-group">
                     {{ form.perceivedControlQ1.label }}<br>
                     <span>None at all</span>
-                    {{ form.perceivedControlQ1(oninput='outputUpdate(value)') }}
+                    {{ form.perceivedControlQ1 }}
                     <span>Complete</span>
+                    <script>
+                        q1Clicked = false
+                        document.getElementById('perceivedControlQ1').onclick = function() {
+                            return q1Clicked = true
+                        }
+                    </script>
                     {% for error in form.perceivedControlQ1.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -81,6 +87,13 @@
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class='btn btn-outline-info') }}
+                <script>
+                    document.getElementById('submit').onclick = function() {
+                        if (q1q1Clicked = false) {
+                            alert('Please answer question 1')
+                        }
+                    }
+                </script>
             </div>
         </form>
     </div>
