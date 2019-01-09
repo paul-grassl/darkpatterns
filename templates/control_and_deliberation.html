@@ -13,11 +13,8 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ1 }}
                     <span>Complete</span>
-                    <script>
-                        q1Clicked = false
-                        document.getElementById('perceivedControlQ1').onclick = function() {
-                            return q1Clicked = true
-                        }
+                    <script src="static/scriptClickCheck.js">
+                        clickCheck(sliderQ1, perceivedControlQ1)
                     </script>
                     {% for error in form.perceivedControlQ1.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
@@ -29,6 +26,9 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ2 }}
                     <span>Complete</span>
+                    <script src="static/scriptClickCheck.js">
+                        clickCheck(sliderQ2, perceivedControlQ2)
+                    </script>
                     {% for error in form.perceivedControlQ2.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -39,6 +39,9 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ3 }}
                     <span>Complete</span>
+                    <script src="static/scriptClickCheck.js">
+                        clickCheck(sliderQ3, perceivedControlQ3)
+                    </script>
                     {% for error in form.perceivedControlQ3.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -49,6 +52,9 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ4 }}
                     <span>Complete</span>
+                    <script src="static/scriptClickCheck.js">
+                        clickCheck(sliderQ4, perceivedControlQ4)
+                    </script>
                     {% for error in form.perceivedControlQ4.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -59,6 +65,9 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ5 }}
                     <span>Complete</span>
+                    <script src="static/scriptClickCheck.js">
+                        clickCheck(sliderQ5, perceivedControlQ5)
+                    </script>
                     {% for error in form.perceivedControlQ5.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -80,6 +89,9 @@
                     <span>None at all</span>
                     {{ form.deliberation }}
                     <span>A great deal</span>
+                    <script src="static/scriptClickCheck.js">
+                        clickCheck(sliderQ6, deliberation)
+                    </script>
                     {% for error in form.deliberation.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
@@ -87,12 +99,8 @@
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class='btn btn-outline-info') }}
-                <script>
-                    document.getElementById('submit').onclick = function() {
-                        if (q1q1Clicked = false) {
-                            alert('Please answer question 1')
-                        }
-                    }
+                <script src="static/scriptClickEvaluation">
+                    clickEvaluation()
                 </script>
             </div>
         </form>
