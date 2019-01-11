@@ -5,7 +5,7 @@
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Questionnaire 1</legend>
-                <p>Please answer the following questions in light of the presented screenshot: </p>
+                <p>Please answer the following questions in light of the presented consent form which you saw earlier: </p>
                 <h5>Part 1</h5>
                 <!-- QUESTION 1 (PART 1) -->
                 <div class="form-group">
@@ -13,9 +13,6 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ1 }}
                     <span>Complete</span>
-                    {% for error in form.perceivedControlQ1.errors %}
-                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
-                    {% endfor %}
                 </div>
                 <!-- QUESTION 2 (PART 1) -->
                 <div class="form-group">
@@ -23,9 +20,6 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ2 }}
                     <span>Complete</span>
-                    {% for error in form.perceivedControlQ2.errors %}
-                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
-                    {% endfor %}
                 </div>
                 <!-- QUESTION 3 (PART 1) -->
                 <div class="form-group">
@@ -33,9 +27,6 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ3 }}
                     <span>Complete</span>
-                    {% for error in form.perceivedControlQ3.errors %}
-                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
-                    {% endfor %}
                 </div>
                 <!-- QUESTION 4 (PART 1) -->
                 <div class="form-group">
@@ -43,9 +34,6 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ4 }}
                     <span>Complete</span>
-                    {% for error in form.perceivedControlQ4.errors %}
-                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
-                    {% endfor %}
                 </div>
                 <!-- QUESTION 5 (PART 1) -->
                 <div class="form-group">
@@ -53,9 +41,6 @@
                     <span>None at all</span>
                     {{ form.perceivedControlQ5 }}
                     <span>Complete</span>
-                    {% for error in form.perceivedControlQ5.errors %}
-                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
-                    {% endfor %}
                 </div>
             </fieldset>
             <fieldset class="form-group">
@@ -74,9 +59,6 @@
                     <span>None at all</span>
                     {{ form.deliberation }}
                     <span>A great deal</span>
-                    {% for error in form.deliberation.errors %}
-                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
-                    {% endfor %}
                 </div>
             </fieldset>
             <div class="form-group">

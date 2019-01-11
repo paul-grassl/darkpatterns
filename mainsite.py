@@ -1,17 +1,11 @@
 from flask import Flask, render_template, url_for, redirect
 from questionnaires import demographicsForm, controlAndDeliberationForm, privacyConcernsForm
+import randomization
 app = Flask(__name__)
 
 
 # At some point you will want to make this an environment variable
 app.config['SECRET_KEY'] = 'd0e4240e6fb74743016fed54800852f8'
-
-
-# atm I'm just rendering templates directly. We will probably need to change
-# this to redirecting to a link (one of our bought domains) later on
-@app.route("/")
-def index():
-    return render_template('index.html')
 
 
 @app.route("/welcome")
@@ -29,7 +23,7 @@ def newsWebsite1():
 def demographics():
     form = demographicsForm()
     if form.validate_on_submit():
-        return redirect(url_for())
+        return redirect(list(randomization.stimuli.keys())[0])
     return render_template('demographics.html', title='Demographic Information', form=form)
 
 
@@ -39,7 +33,7 @@ def controlAndDeliberation():
     form = controlAndDeliberationForm()
     if form.validate_on_submit():
         return redirect(url_for())
-    return render_template('control_and_deliberation.html', title='Control and deliberation', form=form)
+    return render_template('controlAndDeliberation.html', title='Control and deliberation', form=form)
 
 
 # route to privacy concerns form
@@ -49,7 +43,7 @@ def privacyConcerns():
     form = privacyConcernsForm()
     if form.validate_on_submit():
         return redirect(url_for())
-    return render_template('privacy_concerns.html', title='Privacy Attitude', form=form)
+    return render_template('privacyConcerns.html', title='Privacy Attitude', form=form)
 
 
 # This will run the application in debug mode by default, we may want to change
