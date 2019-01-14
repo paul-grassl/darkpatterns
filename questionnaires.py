@@ -77,3 +77,18 @@ class privacyConcernsForm(FlaskForm):
     submit = SubmitField(
                         'Next'
                         )
+
+
+class websiteDesignForm(FlaskForm):
+    webDesignQ1 = DecimalRangeField(
+                        '1. How appealing did you find the layout of this news website?',
+                        default = 50
+                        )
+    webDesignQ2 = DecimalRangeField(
+                        '2. How appealing did you find the colours of this news website?',
+                        default = 50
+                        )
+    webDesignQ3 = DecimalRangeField(
+                        '3. Overall, how appealing did you find the design of this website on first sight?',
+                        default = 50
+                        )

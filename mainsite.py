@@ -1,11 +1,42 @@
 from flask import Flask, render_template, url_for, redirect
-from questionnaires import demographicsForm, controlAndDeliberationForm, privacyConcernsForm
-import randomization
+from flask_sqlalchemy import SQLAlchemy
+from questionnaires import demographicsForm, websiteDesignForm, controlAndDeliberationForm, privacyConcernsForm
+import random
+import stimuliList, security
+
+
 app = Flask(__name__)
-
-
-# At some point you will want to make this an environment variable
+# at some point you will want to make this an environment variable
 app.config['SECRET_KEY'] = 'd0e4240e6fb74743016fed54800852f8'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sona:{}@82.215.18.140/db'.format(security.password)
+db = SQLAlchemy(app)
+
+
+# modals for database structure
+class Participant(db.Modal):
+    id = db.Column(db.Integer, primary_key=True)
+    gender = db.Column(db.String(1), nullable=False)
+    nationality = db.Column(db.String(100), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+
+class Consent(db.Modal):
+    trial = db.Column(db.Integer, nullable=False)
+    default= db.Column(db.Integer, nullable=False)
+    aesthetic = db.Column(db.Integer, nullable=False)
+    obstruction = db.Column(db.Integer, nullable=False)
+    decision = db.Column(db.Integer, nullable=False)
+
+class
+    privatt = db.Column(db.Integer, nullable=False)
+    percontrol = db.Column(db.Integer, nullable=False)
+    deliberation = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return f"Participant('')"
+
+
+# make a list of all websites and then shuffle randomly for each participant
+websiteList = list(stimuliList.stimuli.keys())
 
 
 @app.route("/welcome")
@@ -23,8 +54,15 @@ def newsWebsite1():
 def demographics():
     form = demographicsForm()
     if form.validate_on_submit():
-        return redirect(list(randomization.stimuli.keys())[0])
+        # randomize websiteList
+        randomWebsiteList = random.sample(websiteList, len(websiteList))
+        return redirect(randomWebsiteList[0])
     return render_template('demographics.html', title='Demographic Information', form=form)
+
+
+@app.route("/newswebsitedesign", methods=['GET', 'POST'])
+def websiteDesign():
+    form = websiteDesignForm()
 
 
 # route to perceived control and deliberation form
