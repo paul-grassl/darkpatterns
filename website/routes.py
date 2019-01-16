@@ -1,7 +1,7 @@
-from flask import render_template, url_for, redirect
-from website import app
-from website.models import participantData
-from website.questionnaires import demographicsForm, websiteDesignForm, controlAndDeliberationForm, privacyConcernsForm
+from flask import render_template, url_for, redirect, request
+from website import app, db
+from website.models import demographicData, controlAndDeliberationData, privacyConcernsData
+from website.questionnaires import demographicsForm, websiteDesignForm, controlAndDeliberationForm, privacyConcernsForm, welcomeForm
 import random
 from website import stimuliList, security
 
@@ -9,9 +9,15 @@ from website import stimuliList, security
 websiteList = list(stimuliList.stimuli.keys())
 
 
-@app.route("/welcome")
+@app.route("/welcome", methods=['GET', 'POST'])
 def welcome():
-    return render_template('welcome.html', title='Welcome')
+    form = welcomeForm()
+    if form.validate_on_submit():
+        if request.form['consent'] == 'A':
+            return redirect(url_for('demographics'))
+        else:
+            return redirect('https://www.google.com')
+    return render_template('welcome.html', title='Welcome', form=form)
 
 
 @app.route("/newswebsite1")

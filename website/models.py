@@ -1,20 +1,36 @@
 from website import db
 
 
-# model for database structure
-class participantData(db.Model):
+# models for database structure (each one represents a questionnaire)
+class demographicData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     gender = db.Column(db.String(1), nullable=False)
-    nationality = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    trial = db.Column(db.Integer, nullable=False)
-    default= db.Column(db.Integer, nullable=False)
-    aesthetic = db.Column(db.Integer, nullable=False)
-    obstruction = db.Column(db.Integer, nullable=False)
-    decision = db.Column(db.Integer, nullable=False)
-    privatt = db.Column(db.Integer, nullable=False)
-    percontrol = db.Column(db.Integer, nullable=False)
+    nationality = db.Column(db.String(50), nullable=False)
+
+    def __repr__(self):
+        return f"demographicInfo('{self.id}', '{self.gender}', '{self.age}', '{self.nationality}')"
+
+class controlAndDeliberationData(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    participantId = db.Column(db.Integer, db.ForeignKey('demographicData.id'), nullable=False)
+    perceivedControlQ1 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ2 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ3 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ4 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ5 = db.Column(db.Integer, nullable=False)
+    manipulationCheck = db.Column(db.String(3), nullable=False)
     deliberation = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
-        return f"Participant('{self.id}', '{self.gender}', '{self.nationality}', '{self.age}', '{self.trial}', '{self.default}', '{self.aesthetic}', '{self.obstruction}', '{self.decision}', '{self.privatt}', '{self.percontrol}', '{self.deliberation}')"
+        return f"controlAndDeliberationData('{self.participantId}', '{self.perceivedControlQ1}', '{self.perceivedControlQ2}', '{self.perceivedControlQ3}', '{self.perceivedControlQ4}', '{self.perceivedControlQ5}', '{self.manipulationCheck}', '{self.deliberation}')"
+
+class privacyConcernsData(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    participantId = db.Column(db.Integer, db.ForeignKey('demographicData.id'), nullable=False)
+    privacyConcernsQ1 = db.Column(db.String(1), nullable=False)
+    privacyConcernsQ2 = db.Column(db.String(1), nullable=False)
+    privacyConcernsQ3 = db.Column(db.String(1), nullable=False)
+
+    def __repr__(self):
+        return f"privacyConcernsData('{self.participantId}', '{self.privacyConcernsQ1}', '{self.privacyConcernsQ2}', '{self.privacyConcernsQ3}')"
