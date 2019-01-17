@@ -5,24 +5,6 @@ body {
     margin-bottom: 5rem
 }
 
-/* Consent button for study on welcome page */
-.consent-button {
-    color: white;
-    background-color: #333333;
-    border-radius: 5px;
-    text-align: center;
-    padding: 15px 32px;
-    font-size: 16px;
-    border: 2px solid black;
-    -webkit-transition-duration: 0.1s; /* Safari */
-    transition-duration: 0.1s;
-}
-
-.consent-button:hover {
-  background-color: white;
-  color: black;
-}
-/* This is just copy pasted from corey schafer, check and adjust */
 .questionnaire {
   background: #ffffff;
   padding: 10px 20px;
