@@ -24,7 +24,7 @@
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -50,6 +50,39 @@
 
 	</head>
 	<body>
+
+	<!-- The Modal -->
+	<div class="modal" id="myModal" >
+
+	    <!-- Modal content -->
+	    <div class="modal-content" id="myModal">
+	        <div class="modal-header">
+	            <h4>Before you continue...</h4>
+	        </div>
+	        <div class="modal-body">
+	            <p>we need you to review your privacy settings to be compliant with European laws. *Name of the website* and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
+	                possibly also outside) our website. Click on "Agree" or "Do not Agree" to accept or refuse tracking cookies.</p>
+	        </div>
+	        <div class="modal-footer" style="text-align:center;">
+	            <div class="boxed">
+	                <label class="container">Do Not Agree
+	                    <input type="radio" name="consentForm" id="DNA" value="DNA">
+	                    <span class="checkmark"></span>
+	            </div>
+	            <div class="boxed">
+	                <label class="container">Agree
+	                    <input type="radio" name="consentForm" id="A" value="A">
+	                    <span class="checkmark"></span>
+	            </div>
+
+	            <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">Continue</button>
+	        </div>
+	    </div>
+	</div>
+
+
+	<!-- End of Modal -->
+
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
@@ -320,7 +353,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 						</div>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</div>
 
@@ -341,11 +374,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/owl.carousel.min.js"></script>
 	<!-- Sticky Kit -->
 	<script src="js/sticky-kit.min.js"></script>
-	
-	
+
+
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
 	</body>
 </html>
-

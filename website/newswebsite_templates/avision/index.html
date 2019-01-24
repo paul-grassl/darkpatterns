@@ -14,50 +14,40 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery.mb.YTPlayer-3.1.12/jquery.mb.YTPlayer.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+
 </head>
 <body>
 
 <!-- The Modal -->
-<div id="avisionModal" class="modal">
+<div id="myModal" class="modal">
 
-	<!-- Modal content -->
-	<div class="modal-content">
-		<div class="modal-header">
-			<span class="close">&times;</span>
-			<h4>Before you continue...</h4>
-		</div>
-		<div class="modal-body">
-			<p>we need you to review your privacy settings to be compliant with European laws. *Name of the website* and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and possibly
-				also outside) our website. Click on "Agree" or "Do not Agree" to accept or refuse tracking cookies.</p>
-		</div>
-		<div class="modal-footer">
-			<div class="checkbox">
-				<label class="container">Do Not Agree
-					<input type="checkbox" checked="checked">
-					<span class="checkmark"></span>
-					<label class="container">Agree
-						<input type="checkbox" checked="checked">
-						<span class="checkmark"></span>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4>Before you continue...</h4>
+        </div>
+        <div class="modal-body">
+            <p>we need you to review your privacy settings to be compliant with European laws. *Name of the website* and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
+                possibly also outside) our website. Click on "Agree" or "Do not Agree" to accept or refuse tracking cookies.</p>
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+            <div class="boxed">
+                <label class="container">Do Not Agree
+                    <input type="radio" name="consentForm" id="DNA" value="DNA">
+                    <span class="checkmark"></span>
+            </div>
+            <div class="boxed">
+                <label class="container">Agree
+                    <input type="radio" name="consentForm" id="A" value="A">
+                    <span class="checkmark"></span>
+            </div>
 
-			</div>
-		</div>
-	</div>
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">Continue</button>
+        </div>
+    </div>
 </div>
 
-<script>
-<!-- // Get the modal
-var modal = document.getElementById('avisionModal');
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-</script>
 
 <!-- End of Modal -->
 
@@ -1500,7 +1490,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</div>
 	</footer>
 </div>
-
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -1510,5 +1499,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="plugins/masonry/masonry.js"></script>
 <script src="plugins/masonry/images_loaded.js"></script>
 <script src="js/custom.js"></script>
+
 </body>
 </html>
