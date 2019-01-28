@@ -1,12 +1,12 @@
 $(document).ready(function () {
-  var slider1Clicked = false
-  var slider2Clicked = false
-  var slider3Clicked = false
-  var slider4Clicked = false
-  var slider5Clicked = false
-  var slider6Clicked = false
+  let slider1Clicked = false
+  let slider2Clicked = false
+  let slider3Clicked = false
+  let slider4Clicked = false
+  let slider5Clicked = false
+  let slider6Clicked = false
 
-  // listen for click on element with id 'slider'
+  // listen for click on element with id 'perceivedControl'
   // run the passed function when element is clicked
   $('#perceivedControlQ1').click(function () {
     slider1Clicked = true
@@ -32,7 +32,7 @@ $(document).ready(function () {
     slider6Clicked = true
   })
 
-  // listen for click on element with id 'submit-btn'
+  // listen for click on element with id 'submit'
   $('#submit').click(function (evt) {
     if (slider1Clicked && slider2Clicked &&
         slider3Clicked && slider4Clicked &&

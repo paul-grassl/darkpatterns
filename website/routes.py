@@ -37,6 +37,54 @@ def demographics():
     return render_template('demographics.html', title='Demographic Information', form=form)
 
 
+# route to website 1: avision
+@app.route("/avision", methods=['GET', 'POST'])
+def avision():
+    return render_template('/newswebsite_templates/avision/index.html', title='Avision')
+
+
+# route to website 2: megazine
+@app.route("/megazine", methods=['GET', 'POST'])
+def megazine():
+    return render_template('/newswebsite_templates/megazine/index.html', title='Megazine')
+
+
+# route to website 3: motivemag
+@app.route("/motivemag", methods=['GET', 'POST'])
+def motivemag():
+    return render_template('/newswebsite_templates/motivemag/index.html', title='Motivemag')
+
+
+# route to website 4: quitelight
+@app.route("/quitelight", methods=['GET', 'POST'])
+def quitelight():
+    return render_template('/newswebsite_templates/quitelight/index.html', title='Quitelight')
+
+
+# route to website 5: techmag
+@app.route("/techmag", methods=['GET', 'POST'])
+def techmag():
+    return render_template('/newswebsite_templates/techmag/index.html', title='Techmag')
+
+
+# route to website 6: technews
+@app.route("/technews", methods=['GET', 'POST'])
+def technews():
+    return render_template('/newswebsite_templates/technews/index.html', title='Technews')
+
+
+# route to website 7: viral
+@app.route("/viral", methods=['GET', 'POST'])
+def viral():
+    return render_template('/newswebsite_templates/viral/index.html', title='Viral')
+
+
+# route to website 8: webmag
+@app.route("/webmag", methods=['GET', 'POST'])
+def webmag():
+    return render_template('/newswebsite_templates/webmag/index.html', title='Webmag')
+
+
 # route to cover-story questionnaire
 @app.route("/newswebsitedesign", methods=['GET', 'POST'])
 def websiteDesign():

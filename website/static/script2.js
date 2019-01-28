@@ -1,10 +1,10 @@
 $(document).ready(function () {
-  var slider1Clicked = false
-  var slider2Clicked = false
-  var slider3Clicked = false
+  let slider1Clicked = false
+  let slider2Clicked = false
+  let slider3Clicked = false
 
 
-  // listen for click on element with id 'slider'
+  // listen for click on element with id 'webDesign'
   // run the passed function when element is clicked
   $('#webDesignQ1').click(function () {
     slider1Clicked = true
@@ -19,7 +19,7 @@ $(document).ready(function () {
   })
 
 
-  // listen for click on element with id 'submit-btn'
+  // listen for click on element with id 'submit'
   $('#submit').click(function (evt) {
     if (slider1Clicked && slider2Clicked && slider3Clicked) {
     }
