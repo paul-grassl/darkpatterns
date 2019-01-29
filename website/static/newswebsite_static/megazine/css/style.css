@@ -1494,16 +1494,12 @@ article {
 
 /* The Modal */
 
-.modal {
-}
-
 /* Modal Content */
 .modal-content {
-    position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 0;
     border: 1px solid #888;
+    top: 6%;
     width: 80%;
     max-width: 600px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -1511,20 +1507,17 @@ article {
 
 
 .modal-header {
-    padding: 2px 16px;
     background-color: #E5E5E5;
     color: black;
-    font-size: 20px;
     text-align: left;
 }
 
+
 .modal-body {
-    padding: 2px 16px;
     text-align: justify;
 }
 
 .modal-footer {
-    padding: 25px 16px;
     background-color: #E5E5E5;
     color: black;
 }
@@ -1532,6 +1525,9 @@ article {
 .boxed {
     border: 1px solid black ;
     padding: 7px 8px;
-    display: inline;
-    margin: 0px 2vw;
+    text-align: center;
+}
+
+.top-buffer {
+    margin-top:10px;
 }

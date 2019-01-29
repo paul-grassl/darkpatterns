@@ -17,7 +17,7 @@ $(document).ready(function()
 {
 	"use strict";
 
-	/* 
+	/*
 
 	1. Vars and Inits
 
@@ -33,7 +33,7 @@ $(document).ready(function()
 	initHeaderSearch();
 	initHomeSlider();
 
-	/* 
+	/*
 
 	2. Init Menu
 
@@ -84,7 +84,7 @@ $(document).ready(function()
 		menuActive = false;
 	}
 
-	/* 
+	/*
 
 	3. InitHeader
 
@@ -103,7 +103,7 @@ $(document).ready(function()
 		.addTo(ctrl);
 	}
 
-	/* 
+	/*
 
 	4. Init Header Search
 
@@ -122,7 +122,7 @@ $(document).ready(function()
 		}
 	}
 
-	/* 
+	/*
 
 	5. Init Home Slider
 
@@ -201,4 +201,8 @@ $(document).ready(function()
 		}
 	}
 
+});
+
+$('a').bind("click.myDisable", function() {
+    return false;
 });

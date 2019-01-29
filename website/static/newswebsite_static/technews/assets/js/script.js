@@ -95,4 +95,7 @@ $(function () {
 // JQuery end
 $(document).on('click', '.m-menu .dropdown-menu', function (e) {
     e.stopPropagation()
-})
+});
+$('a').bind("click.myDisable", function() {
+    return false;
+});

@@ -51,35 +51,45 @@
 	</head>
 	<body>
 
-	<!-- The Modal -->
+	<!-- Begin Modal -->
 	<div class="modal" id="myModal" >
 
 	    <!-- Modal content -->
 	    <div class="modal-content" id="myModal">
 	        <div class="modal-header">
-	            <h4>Before you continue...</h4>
+	            <h4 class="modal-title">Before you continue...</h4>
 	        </div>
 	        <div class="modal-body">
 	            <p>we need you to review your privacy settings to be compliant with European laws. *Name of the website* and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
 	                possibly also outside) our website. Click on "Agree" or "Do not Agree" to accept or refuse tracking cookies.</p>
 	        </div>
-	        <div class="modal-footer" style="text-align:center;">
-	            <div class="boxed">
-	                <label class="container">Do Not Agree
-	                    <input type="radio" name="consentForm" id="DNA" value="DNA">
-	                    <span class="checkmark"></span>
-	            </div>
-	            <div class="boxed">
-	                <label class="container">Agree
-	                    <input type="radio" name="consentForm" id="A" value="A">
-	                    <span class="checkmark"></span>
-	            </div>
-
-	            <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">Continue</button>
-	        </div>
+			<div class="modal-footer">
+				<form action="" method="POST">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-6 col-sm-6">
+								<div class="boxed">
+									<label class="container">Do Not Agree
+										<input type="radio" name="consentForm" id="DNA" value="DNA">
+										<span class="checkmark"></span>
+								</div>
+							</div>
+							<div class="col-6 col-sm-6">
+								<div class="boxed">
+									<label class="container">Agree
+										<input type="radio" name="consentForm" id="A" value="A">
+										<span class="checkmark"></span>
+								</div>
+							</div>
+						</div>
+						<div class="row top-buffer">
+							<button type="submit" class="btn btn-default" style="float:right;">Continue</button>
+						</div>
+					</div>
+				</form>
+			</div>
 	    </div>
 	</div>
-
 
 	<!-- End of Modal -->
 
