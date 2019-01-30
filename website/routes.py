@@ -46,11 +46,11 @@ def avision():
 # route to website 2: megazine
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
-    if request.method == 'POST':
-        consentDecision = request.form['consentForm']
-        db.session.add(consentDecision)
-        db.session.commit()
-        
+    # if request.method == 'POST':
+    #     consentDecision = request.form['consentForm']
+    #     db.session.add(consentDecision)
+    #     db.session.commit()
+
     return render_template('/newswebsite_templates/megazine/index.html', title='Megazine')
 
 
