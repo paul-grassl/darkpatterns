@@ -31,6 +31,15 @@
                     {% endfor %}
                 </div>
             </fieldset>
+            <fieldset class="border-top form-group">
+                <div class="form-group">
+                    {{ form.correctDisplayed.label }}
+                    {{ form.correctDisplayed }}
+                    {% for error in form.correctDisplayed.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </fieldset>
             <div class="form-group">
                 {{ form.submit(class='btn btn-outline-info') }}
             </div>

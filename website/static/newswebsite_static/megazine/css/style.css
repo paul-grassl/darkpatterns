@@ -1531,3 +1531,8 @@ article {
 .top-buffer {
     margin-top:10px;
 }
+
+.errorTxt {
+    color: red;
+    text-align: center;
+}

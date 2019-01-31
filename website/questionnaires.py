@@ -5,7 +5,8 @@ from wtforms.validators import NumberRange, InputRequired
 
 
 class welcomeForm(FlaskForm):
-    consent = RadioField('',
+    consent = RadioField(
+                        '',
                         choices=[('A', 'I hereby agree to participate in the study'), ('DNA', 'I do not agree (leave the study)')],
                         validators=[InputRequired()]
                         )
@@ -36,27 +37,27 @@ class demographicsForm(FlaskForm):
 class controlAndDeliberationForm(FlaskForm):
     perceivedControlQ1 = DecimalRangeField(
                         '1. How much control did you feel the consent form gave you over the amount of your personal information collected by the company?',
-                        default=50,
+                        default=0,
                         places=0
                         )
     perceivedControlQ2 = DecimalRangeField(
                         '2. How much control did you feel the consent form gave you over who can get access your personal information?',
-                        default=50,
+                        default=0,
                         places=0
                         )
     perceivedControlQ3 = DecimalRangeField(
                         '3. How much control did you feel the consent form gave you over your personal information that has been released?',
-                        default=50,
+                        default=0,
                         places=0
                         )
     perceivedControlQ4 = DecimalRangeField(
                         '4. How much control did you feel the consent form gave you over how your personal information is being used by the company?',
-                        default=50,
+                        default=0,
                         places=0
                         )
     perceivedControlQ5 = DecimalRangeField(
                         '5. Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
-                        default=50,
+                        default=0,
                         places=0
                         )
     manipulationCheck = RadioField(
@@ -66,7 +67,7 @@ class controlAndDeliberationForm(FlaskForm):
                         )
     deliberation = DecimalRangeField(
                         '2. How much did you think about your decision before clicking on one option?',
-                        default=50,
+                        default=0,
                         places=0
                         )
     submit = SubmitField(
@@ -90,6 +91,11 @@ class privacyConcernsForm(FlaskForm):
                         choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
                         validators=[InputRequired()]
                         )
+    correctDisplayed = RadioField(
+                       'Were all websites and questionnaires of the study displayed correctly?',
+                       choices=[('Y', 'Yes, all of them'), ('N', 'No, not all of them')],
+                       validators=[InputRequired()]
+                       )
     submit = SubmitField(
                         'Next'
                         )
@@ -98,13 +104,13 @@ class privacyConcernsForm(FlaskForm):
 class websiteDesignForm(FlaskForm):
     webDesignQ1 = DecimalRangeField(
                         '1. How appealing did you find the layout of this news website?',
-                        default = 50
+                        default = 0
                         )
     webDesignQ2 = DecimalRangeField(
                         '2. How appealing did you find the colours of this news website?',
-                        default = 50
+                        default = 0
                         )
     webDesignQ3 = DecimalRangeField(
                         '3. Overall, how appealing did you find the design of this website on first sight?',
-                        default = 50
+                        default = 0
                         )

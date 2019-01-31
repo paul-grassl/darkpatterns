@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, request
 from website import app, db
-from website.models import demographicData, controlAndDeliberationData, privacyConcernsData
+from website.models import demographicData, modalData, controlAndDeliberationData, privacyConcernsData
 from website.questionnaires import demographicsForm, websiteDesignForm, controlAndDeliberationForm, privacyConcernsForm, welcomeForm
 import random
 from website import stimuliList
@@ -33,7 +33,7 @@ def demographics():
         participant = demographicData(gender=form.gender.data, age=form.age.data, nationality=form.nationality.data)
         db.session.add(participant)
         db.session.commit()
-        return redirect(randomWebsiteList[0])
+        return redirect(url_for('megazine')) #randomWebsiteList[0]
     return render_template('demographics.html', title='Demographic Information', form=form)
 
 
@@ -46,11 +46,11 @@ def avision():
 # route to website 2: megazine
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
-    # if request.method == 'POST':
-    #     consentDecision = request.form['consentForm']
-    #     db.session.add(consentDecision)
-    #     db.session.commit()
-
+    if request.method == 'POST':
+        consentDecision = modalData(consent=request.form['consentForm'])
+        db.session.add(consentDecision)
+        db.session.commit()
+        return redirect(url_for('motivemag'))
     return render_template('/newswebsite_templates/megazine/index.html', title='Megazine')
 
 
