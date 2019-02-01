@@ -16,3 +16,8 @@ body {
 ul {
   list-style-type: none;
 }
+
+.welcomePage {
+    max-width: 700px;
+    text-align: justify;
+}

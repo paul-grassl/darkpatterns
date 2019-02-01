@@ -1,8 +1,15 @@
-from website import db
+from website import db, login_manager
+from flask_login import UserMixin
+
+
+# function to remember participant
+@login_manager.user_loader
+def load_participant(participant_id):
+    return demographicData.query.get(int(participant_id))
 
 
 # models for database structure (each one represents a questionnaire)
-class demographicData(db.Model):
+class demographicData(db.Model, UserMixin):
     __tablename__ = 'demographic_data'
     id = db.Column(db.Integer, primary_key=True)
     gender = db.Column(db.String(1), nullable=False)

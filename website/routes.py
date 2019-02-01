@@ -2,6 +2,7 @@ from flask import render_template, url_for, redirect, request
 from website import app, db
 from website.models import demographicData, modalData, controlAndDeliberationData, privacyConcernsData
 from website.questionnaires import demographicsForm, websiteDesignForm, controlAndDeliberationForm, privacyConcernsForm, welcomeForm
+from flask_login import current_user
 import random
 from website import stimuliList
 
@@ -18,7 +19,7 @@ def welcome():
         if request.form['consent'] == 'A':
             return redirect(url_for('demographics'))
         else:
-            return redirect('https://www.google.com')
+            return redirect('https://www.google.com')  # create some kind of goodbye page for all who leave
     return render_template('welcome.html', title='Welcome', form=form)
 
 
@@ -30,8 +31,8 @@ def demographics():
         # randomize websiteList
         randomWebsiteList = random.sample(websiteList, len(websiteList))
         # save data to db
-        participant = demographicData(gender=form.gender.data, age=form.age.data, nationality=form.nationality.data)
-        db.session.add(participant)
+        newParticipant = demographicData(gender=form.gender.data, age=form.age.data, nationality=form.nationality.data)
+        db.session.add(newParticipant)
         db.session.commit()
         return redirect(url_for('megazine')) #randomWebsiteList[0]
     return render_template('demographics.html', title='Demographic Information', form=form)
@@ -47,7 +48,7 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        consentDecision = modalData(consent=request.form['consentForm'])
+        consentDecision = modalData(participant=current_user, consent=request.form['consentForm'])
         db.session.add(consentDecision)
         db.session.commit()
         return redirect(url_for('motivemag'))
