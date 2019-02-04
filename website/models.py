@@ -1,11 +1,18 @@
 from website import db, login_manager
-from flask_login import UserMixin
+from flask_login import UserMixin  # , AnonymousUserMixin
 
 
 # function to remember participant
 @login_manager.user_loader
 def load_participant(participant_id):
     return demographicData.query.get(int(participant_id))
+
+
+# class anonymousUser(AnonymousUserMixin):
+#     id = # add something so anonymous User has id
+#
+#
+# login_manager.anonymous_user = anonymousUser
 
 
 # models for database structure (each one represents a questionnaire)

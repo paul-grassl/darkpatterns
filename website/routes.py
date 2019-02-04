@@ -1,9 +1,11 @@
+import flask
 from flask import render_template, url_for, redirect, request
 from website import app, db
-from website.models import demographicData, modalData, controlAndDeliberationData, privacyConcernsData
+from website.models import demographicData, modalData, controlAndDeliberationData, privacyConcernsData, anonymousUser
 from website.questionnaires import demographicsForm, websiteDesignForm, controlAndDeliberationForm, privacyConcernsForm, welcomeForm
 from flask_login import current_user
 import random
+import uuid
 from website import stimuliList
 
 
@@ -30,6 +32,7 @@ def demographics():
     if form.validate_on_submit():
         # randomize websiteList
         randomWebsiteList = random.sample(websiteList, len(websiteList))
+        # userID = str(uuid.uuid4())
         # save data to db
         newParticipant = demographicData(gender=form.gender.data, age=form.age.data, nationality=form.nationality.data)
         db.session.add(newParticipant)
