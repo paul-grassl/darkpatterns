@@ -4,7 +4,7 @@ from wtforms.fields.html5 import DecimalRangeField
 from wtforms.validators import NumberRange, InputRequired
 
 
-class welcomeForm(FlaskForm):
+class WelcomeForm(FlaskForm):
     consent = RadioField(
                         '',
                         choices=[('A', 'I hereby agree to participate in the study'), ('DNA', 'I do not agree (leave the study)')],
@@ -15,7 +15,7 @@ class welcomeForm(FlaskForm):
                         )
 
 
-class demographicsForm(FlaskForm):
+class DemographicsForm(FlaskForm):
     gender = RadioField(
                         'Gender',
                         choices=[('M', 'Male'), ('F', 'Female'), ('O', 'Other')],
@@ -34,7 +34,7 @@ class demographicsForm(FlaskForm):
                         )
 
 
-class controlAndDeliberationForm(FlaskForm):
+class ControlAndDeliberationForm(FlaskForm):
     perceivedControlQ1 = DecimalRangeField(
                         '1. How much control did you feel the consent form gave you over the amount of your personal information collected by the company?',
                         default=0,
@@ -75,7 +75,7 @@ class controlAndDeliberationForm(FlaskForm):
                         )
 
 
-class privacyConcernsForm(FlaskForm):
+class PrivacyConcernsForm(FlaskForm):
     privacyConcernsQ1 = RadioField(
                         '1. Compared to others I’m more sensitive about the way online companies handle my personal information',
                         choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
@@ -101,7 +101,7 @@ class privacyConcernsForm(FlaskForm):
                         )
 
 
-class websiteDesignForm(FlaskForm):
+class WebsiteDesignForm(FlaskForm):
     webDesignQ1 = DecimalRangeField(
                         '1. How appealing did you find the layout of this news website?',
                         default = 0

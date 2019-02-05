@@ -1,9 +1,8 @@
-import flask
-from flask import render_template, url_for, redirect, request
+# import flask
+from flask import render_template, url_for, redirect, request, session
 from website import app, db
-from website.models import demographicData, modalData, controlAndDeliberationData, privacyConcernsData, anonymousUser
-from website.questionnaires import demographicsForm, websiteDesignForm, controlAndDeliberationForm, privacyConcernsForm, welcomeForm
-from flask_login import current_user
+from website.models import DemographicData, ModalData, ControlAndDeliberationData, PrivacyConcernsData
+from website.questionnaires import DemographicsForm, WebsiteDesignForm, ControlAndDeliberationForm, PrivacyConcernsForm, WelcomeForm
 import random
 import uuid
 from website import stimuliList
@@ -16,9 +15,10 @@ websiteList = list(stimuliList.stimuli.keys())
 # route to welcome page with permission statement and consent form
 @app.route("/welcome", methods=['GET', 'POST'])
 def welcome():
-    form = welcomeForm()
+    form = WelcomeForm()
     if form.validate_on_submit():
         if request.form['consent'] == 'A':
+            flask.session['userID'] = str(uuid.uuid4())  # not sure if I wanna use this
             return redirect(url_for('demographics'))
         else:
             return redirect('https://www.google.com')  # create some kind of goodbye page for all who leave
@@ -28,13 +28,12 @@ def welcome():
 # route to demographic information form
 @app.route("/demographics", methods=['GET', 'POST'])
 def demographics():
-    form = demographicsForm()
+    form = DemographicsForm()
     if form.validate_on_submit():
         # randomize websiteList
         randomWebsiteList = random.sample(websiteList, len(websiteList))
-        # userID = str(uuid.uuid4())
         # save data to db
-        newParticipant = demographicData(gender=form.gender.data, age=form.age.data, nationality=form.nationality.data)
+        newParticipant = DemographicData(gender=form.gender.data, age=form.age.data, nationality=form.nationality.data)
         db.session.add(newParticipant)
         db.session.commit()
         return redirect(url_for('megazine')) #randomWebsiteList[0]
@@ -51,7 +50,7 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        consentDecision = modalData(participant=current_user, consent=request.form['consentForm'])
+        consentDecision = ModalData(participant=demographic_data, consent=request.form['consentForm'])
         db.session.add(consentDecision)
         db.session.commit()
         return redirect(url_for('motivemag'))
@@ -97,14 +96,14 @@ def webmag():
 # route to cover-story questionnaire
 @app.route("/newswebsitedesign", methods=['GET', 'POST'])
 def websiteDesign():
-    form = websiteDesignForm()
+    form = WebsiteDesignForm()
     return render_template('websiteDesign.html', title='News website design', form=form)
 
 
 # route to perceived control and deliberation form
 @app.route("/questionnaire1", methods=['GET', 'POST'])
 def controlAndDeliberation():
-    form = controlAndDeliberationForm()
+    form = ControlAndDeliberationForm()
     if form.validate_on_submit():
         return redirect(url_for())
     return render_template('controlAndDeliberation.html', title='Control and deliberation', form=form)
@@ -114,7 +113,7 @@ def controlAndDeliberation():
 # the redirect link needs to be back to SONA in the end
 @app.route("/questionnaire2", methods=['GET', 'POST'])
 def privacyConcerns():
-    form = privacyConcernsForm()
+    form = PrivacyConcernsForm()
     if form.validate_on_submit():
         return redirect(url_for())
     return render_template('privacyConcerns.html', title='Privacy Attitude', form=form)

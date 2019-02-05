@@ -1,37 +1,23 @@
-from website import db, login_manager
-from flask_login import UserMixin  # , AnonymousUserMixin
-
-
-# function to remember participant
-@login_manager.user_loader
-def load_participant(participant_id):
-    return demographicData.query.get(int(participant_id))
-
-
-# class anonymousUser(AnonymousUserMixin):
-#     id = # add something so anonymous User has id
-#
-#
-# login_manager.anonymous_user = anonymousUser
+from website import db
 
 
 # models for database structure (each one represents a questionnaire)
-class demographicData(db.Model, UserMixin):
+class DemographicData(db.Model):
     __tablename__ = 'demographic_data'
     id = db.Column(db.Integer, primary_key=True)
     gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     nationality = db.Column(db.String(50), nullable=False)
     # create relationships to the other models to link them to the demographicData
-    consentRequest = db.relationship('modalData', backref='participant', lazy=True)
-    questionnaire1 = db.relationship('controlAndDeliberationData', backref='participant', lazy=True)
-    questionnaire2 = db.relationship('privacyConcernsData', backref='participant', lazy=True)
+    consentRequest = db.relationship('ModalData', backref='participant', lazy=True)
+    questionnaire1 = db.relationship('ControlAndDeliberationData', backref='participant', lazy=True)
+    questionnaire2 = db.relationship('PrivacyConcernsData', backref='participant', lazy=True)
 
     def __repr__(self):
         return f"demographicData('{self.id}', '{self.gender}', '{self.age}', '{self.nationality}')"
 
 
-class modalData(db.Model):
+class ModalData(db.Model):
     __tablename__ = 'modal_data'
     id = db.Column(db.Integer, primary_key=True)
     participantId = db.Column(db.Integer, db.ForeignKey('demographic_data.id'), nullable=False)
@@ -41,7 +27,7 @@ class modalData(db.Model):
         return f"modalData('{self.participantId}', '{self.consent}')"
 
 
-class controlAndDeliberationData(db.Model):
+class ControlAndDeliberationData(db.Model):
     __tablename__ = 'control_and_deliberation_data'
     id = db.Column(db.Integer, primary_key=True)
     participantId = db.Column(db.Integer, db.ForeignKey('demographic_data.id'), nullable=False)
@@ -57,7 +43,7 @@ class controlAndDeliberationData(db.Model):
         return f"controlAndDeliberationData('{self.participantId}', '{self.perceivedControlQ1}', '{self.perceivedControlQ2}', '{self.perceivedControlQ3}', '{self.perceivedControlQ4}', '{self.perceivedControlQ5}', '{self.manipulationCheck}', '{self.deliberation}')"
 
 
-class privacyConcernsData(db.Model):
+class PrivacyConcernsData(db.Model):
     __tablename__ = 'privacy_concerns_data'
     id = db.Column(db.Integer, primary_key=True)
     participantId = db.Column(db.Integer, db.ForeignKey('demographic_data.id'), nullable=False)
