@@ -33,7 +33,9 @@ def demographics():
         # randomize websiteList
         randomWebsiteList = random.sample(websiteList, len(websiteList))
         # save data to db
-        newParticipant = DemographicData(gender=form.gender.data, age=form.age.data, nationality=form.nationality.data)
+        newParticipant = DemographicData(gender=form.gender.data,
+                                         age=form.age.data,
+                                         nationality=form.nationality.data)
         db.session.add(newParticipant)
         db.session.commit()
         return redirect(url_for('megazine')) #randomWebsiteList[0]
@@ -50,7 +52,8 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        consentDecision = ModalData(participant=demographic_data, consent=request.form['consentForm'])
+        consentDecision = ModalData(participant=DemographicData.id,
+                                    consent=request.form['consentForm'])
         db.session.add(consentDecision)
         db.session.commit()
         return redirect(url_for('motivemag'))
@@ -105,6 +108,16 @@ def websiteDesign():
 def controlAndDeliberation():
     form = ControlAndDeliberationForm()
     if form.validate_on_submit():
+        questionnaire1Data = ControlAndDeliberationData(participant=demographic_data,
+                                                        perceivedControlQ1=form.perceivedControlQ1.data,
+                                                        perceivedControlQ2=form.perceivedControlQ2.data,
+                                                        perceivedControlQ3=form.perceivedControlQ3.data,
+                                                        perceivedControlQ4=form.perceivedControlQ4.data,
+                                                        perceivedControlQ5=form.perceivedControlQ5.data,
+                                                        manipulationCheck=form.manipulationCheck.data,
+                                                        deliberation=form.deliberation.data)
+        db.session.add(questionnaire1Data)
+        db.session.commit()
         return redirect(url_for())
     return render_template('controlAndDeliberation.html', title='Control and deliberation', form=form)
 

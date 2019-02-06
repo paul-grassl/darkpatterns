@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import RadioField, SubmitField, IntegerField, StringField
 from wtforms.fields.html5 import DecimalRangeField
+import decimal
 from wtforms.validators import NumberRange, InputRequired
 
 
@@ -38,27 +39,22 @@ class ControlAndDeliberationForm(FlaskForm):
     perceivedControlQ1 = DecimalRangeField(
                         '1. How much control did you feel the consent form gave you over the amount of your personal information collected by the company?',
                         default=0,
-                        places=0
                         )
     perceivedControlQ2 = DecimalRangeField(
                         '2. How much control did you feel the consent form gave you over who can get access your personal information?',
                         default=0,
-                        places=0
                         )
     perceivedControlQ3 = DecimalRangeField(
                         '3. How much control did you feel the consent form gave you over your personal information that has been released?',
                         default=0,
-                        places=0
                         )
     perceivedControlQ4 = DecimalRangeField(
                         '4. How much control did you feel the consent form gave you over how your personal information is being used by the company?',
                         default=0,
-                        places=0
                         )
     perceivedControlQ5 = DecimalRangeField(
                         '5. Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
                         default=0,
-                        places=0
                         )
     manipulationCheck = RadioField(
                         '1. Which option did you choose?',
