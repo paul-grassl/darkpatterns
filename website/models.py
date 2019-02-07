@@ -8,19 +8,20 @@ class DemographicData(db.Model):
     gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     nationality = db.Column(db.String(50), nullable=False)
+    websiteList = db.Column(db.String(1000), nullable=False)
     # create relationships to the other models to link them to the demographicData
-    consentRequest = db.relationship('ModalData', backref='participant', lazy='dynamic')
-    questionnaire1 = db.relationship('ControlAndDeliberationData', backref='participant', lazy=True)
-    questionnaire2 = db.relationship('PrivacyConcernsData', backref='participant', lazy=True)
+    consentRequest = db.relationship('ModalData', backref='participant_bref', lazy=True)
+    questionnaire1 = db.relationship('ControlAndDeliberationData', backref='participant_bref', lazy=True)
+    questionnaire2 = db.relationship('PrivacyConcernsData', backref='participant_bref', lazy=True)
 
     def __repr__(self):
-        return f"demographicData('{self.id}', '{self.gender}', '{self.age}', '{self.nationality}')"
+        return f"demographicData('{self.id}', '{self.gender}', '{self.age}', '{self.nationality}', '{self.websiteList}')"
 
 
 class ModalData(db.Model):
     __tablename__ = 'modal_data'
     id = db.Column(db.Integer, primary_key=True)
-    participantId = db.Column(db.Integer, db.ForeignKey(DemographicData.id), nullable=False)
+    participantId = db.Column(db.Integer, db.ForeignKey('demographic_data.id'), nullable=False)
     consent = db.Column(db.String(3), nullable=False)
 
     def __repr__(self):

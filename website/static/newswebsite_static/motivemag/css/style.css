@@ -19,7 +19,7 @@ body a {
 }
 body a:hover,h5.top a:hover,.b-text h5 a:hover,.b-bottom-text h5 a:hover,.b-text h6 a:hover,.b-bottom-text h6 a:hover{
     color: #ee5656;
-	
+
 }
 @font-face {
    font-family: 'Roboto-Regular';
@@ -36,9 +36,9 @@ input[type="button"],input[type="submit"],.port-grid ,.text p,.text h3{
 	-ms-transition:0.5s all;
 }
 h1,h2,h3,h4,h5,h6{
-	margin:0;	
+	margin:0;
 	font-family:'Roboto-Regular';
-}	
+}
 p{
 	margin:0;
 	font-family: 'Roboto-Regular';
@@ -226,7 +226,7 @@ label{
 		color: #EE5656;
 		background: none;
 	}
-	
+
 	@media (max-width:767px) {
 		.dropdown-menu.multi-column {
 			min-width: 240px !important;
@@ -541,7 +541,7 @@ span.text {
     -o-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
     transition: all 0.2s ease;
-	
+
 }
 .c5-element-facebook:hover{
  background:#29689E;
@@ -1505,7 +1505,7 @@ ul.td-pb-padding-side li a {
     font-size: 0.9em;
 }
 ul.td-pb-padding-side li a:hover{
-      color: #fff;  
+      color: #fff;
 	text-decoration:none;
 }
 /*--copyright--*/
@@ -1637,7 +1637,7 @@ p.para1{
     color: #737171;
     font-size: 0.9em;
     line-height: 1.8em;
-	
+
 }
 address {
    width: 100%;
@@ -1661,7 +1661,7 @@ color: #024db3;
 }
 .more-address{
     padding: 1em 0;
-} 
+}
 abbr[title], abbr[data-original-title] {
     cursor: help;
     border-bottom: none!important;
@@ -2591,4 +2591,48 @@ border: 1px solid #EAE5E5;
 		border: 1px solid #ddd;
 		padding: 0 5px!important;
 	}
+}
+/* --------- The Modal --------- */
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    top: 6%;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.modal-header {
+    background-color: #E5E5E5;
+    color: black;
+    text-align: left;
+}
+
+
+.modal-body {
+    text-align: justify;
+}
+
+.modal-footer {
+    background-color: #E5E5E5;
+    color: black;
+}
+
+.boxed {
+    border: 1px solid black ;
+    padding: 7px 8px;
+    text-align: center;
+}
+
+.top-buffer {
+    margin-top:10px;
+}
+
+.errorTxt {
+    color: red;
+    text-align: center;
 }

@@ -4,12 +4,16 @@ from website import app, db
 from website.models import DemographicData, ModalData, ControlAndDeliberationData, PrivacyConcernsData
 from website.questionnaires import DemographicsForm, WebsiteDesignForm, ControlAndDeliberationForm, PrivacyConcernsForm, WelcomeForm
 import random
-import uuid
 from website import stimuliList
 
 
 # make a list of all websites and then shuffle randomly for each participant
 websiteList = list(stimuliList.stimuli.keys())
+
+
+@app.before_request
+def make_session_permanent():
+    session.permanent = True
 
 
 # route to welcome page with permission statement and consent form
@@ -18,7 +22,6 @@ def welcome():
     form = WelcomeForm()
     if form.validate_on_submit():
         if request.form['consent'] == 'A':
-            flask.session['userID'] = str(uuid.uuid4())  # not sure if I wanna use this
             return redirect(url_for('demographics'))
         else:
             return redirect('https://www.google.com')  # create some kind of goodbye page for all who leave
@@ -30,14 +33,19 @@ def welcome():
 def demographics():
     form = DemographicsForm()
     if form.validate_on_submit():
-        # randomize websiteList
+        # if session.new:
+            # randomize websiteList
         randomWebsiteList = random.sample(websiteList, len(websiteList))
-        # save data to db
-        newParticipant = DemographicData(gender=form.gender.data,
-                                         age=form.age.data,
-                                         nationality=form.nationality.data)
-        db.session.add(newParticipant)
+        participant = DemographicData(gender=form.gender.data,
+                                      age=form.age.data,
+                                      nationality=form.nationality.data,
+                                      websiteList=str(randomWebsiteList))
+        session.anonymous_user_id = participant.id
+        # save to database
+        db.session.add(participant)
         db.session.commit()
+        # else:
+        #     participant = DemographicData.query.get(session.anonymous_user_id)
         return redirect(url_for('megazine')) #randomWebsiteList[0]
     return render_template('demographics.html', title='Demographic Information', form=form)
 
@@ -52,7 +60,7 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        consentDecision = ModalData(participant=DemographicData.id,
+        consentDecision = ModalData(participant_bref=DemographicData.query.get(session.anonymous_user_id),
                                     consent=request.form['consentForm'])
         db.session.add(consentDecision)
         db.session.commit()
@@ -108,7 +116,7 @@ def websiteDesign():
 def controlAndDeliberation():
     form = ControlAndDeliberationForm()
     if form.validate_on_submit():
-        questionnaire1Data = ControlAndDeliberationData(participant=demographic_data,
+        questionnaire1Data = ControlAndDeliberationData(participant_bref=DemographicData.id,
                                                         perceivedControlQ1=form.perceivedControlQ1.data,
                                                         perceivedControlQ2=form.perceivedControlQ2.data,
                                                         perceivedControlQ3=form.perceivedControlQ3.data,
