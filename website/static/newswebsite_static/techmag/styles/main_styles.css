@@ -135,7 +135,7 @@ p a:hover::after
 }
 p::selection
 {
-	
+
 }
 h1{font-size: 48px;}
 h2{font-size: 36px;}
@@ -150,14 +150,14 @@ h1, h2, h3, h4, h5, h6
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	line-height: 1.2;
 }
-h1::selection, 
-h2::selection, 
-h3::selection, 
-h4::selection, 
-h5::selection, 
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
 h6::selection
 {
-	
+
 }
 .form-control
 {
@@ -658,9 +658,9 @@ section
 	font-weight: 400 !important;
 	font-style: italic;
 	color: #aeaeae !important;
-} 
+}
 .header_search_input:-ms-input-placeholder
-{ 
+{
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
@@ -863,9 +863,9 @@ section
 	font-size: 14px !important;
 	font-weight: 500 !important;
 	color: rgba(0,0,0,0.15) !important;
-} 
+}
 .menu .search_input:-ms-input-placeholder
-{ 
+{
 	font-size: 14px !important;
 	font-weight: 500 !important;
 	color: rgba(0,0,0,0.15) !important;
@@ -1486,9 +1486,9 @@ section
 	font-weight: normal !important;
 	font-style: italic;
 	color: #b2b2b2 !important;
-} 
+}
 .newsletter_input:-ms-input-placeholder
-{ 
+{
 	font-size: 13px !important;
 	font-weight: normal !important;
 	font-style: italic;
@@ -1607,7 +1607,7 @@ section
 }
 .latest_post_title
 {
-	
+
 }
 .latest_post_title a
 {
@@ -1834,4 +1834,50 @@ section
 	margin-top: 43px;
 	font-size: 11px;
 	color: #9e9e9e;
+}
+
+/* --------- The Modal --------- */
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    top: 6%;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.modal-header {
+    background-color: #E5E5E5;
+    color: black;
+    text-align: left;
+}
+
+
+.modal-body {
+    text-align: justify;
+}
+
+.modal-footer {
+    background-color: #E5E5E5;
+    color: black;
+	display: block;
+}
+
+.boxed {
+    border: 1px solid black ;
+    padding: 7px 8px;
+    text-align: center;
+}
+
+.top-buffer {
+    margin-top:10px;
+}
+
+.errorTxt {
+    color: red;
+    text-align: center;
 }

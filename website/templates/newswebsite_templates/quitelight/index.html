@@ -23,6 +23,55 @@
 </head>
 <body>
 
+	<!-- Begin Modal -->
+	<div class="modal" id="myModal" >
+
+	    <!-- Modal content -->
+	    <div class="modal-content" id="myModal">
+	        <div class="modal-header">
+	            <h4 class="modal-title">Privacy Statement</h4>
+	        </div>
+	        <div class="modal-body">
+	            <p>Quitelight and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
+	                possibly also outside) our website. To be compliant with European data regulation laws we need you to review your privacy settings.  Click on "Agree" or "Do Not Agree" to accept or refuse tracking cookies.</p>
+	        </div>
+			<div class="modal-footer">
+				<form action="" method="POST" id="myForm">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-6 col-sm-6">
+								<div class="boxed checkbox">
+									<label>
+										<input type="radio" name="consentForm" id="DNA" value="DNA">
+										Do Not Agree
+									</label>
+								</div>
+							</div>
+							<div class="col-6 col-sm-6">
+								<div class="boxed checkbox">
+									<label>
+										<input type="radio" name="consentForm" id="A" value="A">
+										Agree
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row top-buffer">
+							<div class="col-6 col-sm-6">
+								<div class="errorTxt"></div>
+							</div>
+							<div class="col-6 col-sm-6">
+								<button type="submit" class="btn btn-default" style="float:right;">Continue</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+	    </div>
+	</div>
+
+	<!-- End of Modal -->
+
 	<header>
 		<a class="logo" href="#"><img src="static/newswebsite_static/quitelight/images/logo-white.png" alt="Logo"></a>
 
@@ -801,6 +850,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- SCIPTS -->
 
 	<script src="static/newswebsite_static/quitelight/plugin-frameworks/jquery-3.2.1.min.js"></script>
+
+	<!-- The following is needed for modal validation -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
 
 	<script src="static/newswebsite_static/quitelight/plugin-frameworks/bootstrap.min.js"></script>
 

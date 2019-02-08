@@ -1507,9 +1507,10 @@ article {
 
 
 .modal-header {
-    background-color: #E5E5E5;
+    background-color: #a0d5ef;
     color: black;
-    text-align: left;
+    text-align: center;
+
 }
 
 
@@ -1518,7 +1519,7 @@ article {
 }
 
 .modal-footer {
-    background-color: #E5E5E5;
+    background-color: #ffffff;
     color: black;
 }
 

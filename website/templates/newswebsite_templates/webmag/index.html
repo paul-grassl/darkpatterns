@@ -30,6 +30,55 @@
     </head>
 	<body>
 
+		<!-- Begin Modal -->
+		<div class="modal" id="myModal" >
+
+		    <!-- Modal content -->
+		    <div class="modal-content" id="myModal">
+		        <div class="modal-header">
+		            <h4 class="modal-title">Before you continue...</h4>
+		        </div>
+		        <div class="modal-body">
+		            <p>we need you to review your privacy settings to be compliant with European laws. Webmag and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
+		                possibly also outside) our website. Click on "Agree" or "Do Not Agree" to accept or refuse tracking cookies.</p>
+		        </div>
+				<div class="modal-footer">
+					<form action="" method="POST" id="myForm">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-6 col-sm-6">
+									<div class="boxed checkbox">
+										<label>
+											<input type="radio" name="consentForm" id="DNA" value="DNA">
+											Do Not Agree
+										</label>
+									</div>
+								</div>
+								<div class="col-6 col-sm-6">
+									<div class="boxed checkbox">
+										<label>
+											<input type="radio" name="consentForm" id="A" value="A">
+											Agree
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row top-buffer">
+								<div class="col-6 col-sm-6">
+									<div class="errorTxt"></div>
+								</div>
+								<div class="col-6 col-sm-6">
+									<button type="submit" class="btn btn-default" style="float:right;">Continue</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+		    </div>
+		</div>
+
+		<!-- End of Modal -->
+
 		<!-- Header -->
 		<header id="header">
 			<!-- Nav -->
@@ -740,6 +789,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 		<!-- jQuery Plugins -->
 		<script src="static/newswebsite_static/webmag/js/jquery.min.js"></script>
+		<!-- The following is needed for modal validation -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+		<!-- end -->
 		<script src="static/newswebsite_static/webmag/js/bootstrap.min.js"></script>
 		<script src="static/newswebsite_static/webmag/js/main.js"></script>
 

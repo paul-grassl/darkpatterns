@@ -1892,6 +1892,7 @@ section
 .modal-footer {
     background-color: #E5E5E5;
     color: black;
+	display: block;
 }
 
 .boxed {

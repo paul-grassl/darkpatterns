@@ -1335,3 +1335,54 @@ textarea:focus {
       height: 500px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/* --------- The Modal --------- */
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    top: 6%;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.modal-header {
+    background-color: #E5E5E5;
+    color: black;
+    text-align: left;
+}
+
+
+.modal-body {
+    text-align: justify;
+}
+
+.modal-footer {
+    background-color: #E5E5E5;
+    color: black;
+    display: block;
+}
+
+.boxed {
+    border: 1px solid black ;
+    padding: 7px 8px;
+    text-align: center;
+}
+
+.top-buffer {
+    margin-top:10px;
+}
+
+.errorTxt {
+    color: red;
+    text-align: center;
+}
+
+.row {
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+}
