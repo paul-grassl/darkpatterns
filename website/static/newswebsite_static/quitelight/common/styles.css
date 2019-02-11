@@ -2430,7 +2430,7 @@ footer i{ font-size: 1.4em; }
 }
 
 .modal-footer {
-    background-color: #E5E5E5;
+    background-color: white;
     color: black;
 	display: block;
 }

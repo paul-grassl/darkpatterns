@@ -1847,13 +1847,16 @@ section
     width: 80%;
     max-width: 600px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	border-width: thick;
+	border-color: #543293;
 }
 
 
 .modal-header {
-    background-color: #E5E5E5;
-    color: black;
-    text-align: left;
+    background-color: #d6c6f4;
+    color: #543293;
+    text-align: center;
+	display: block;
 }
 
 
@@ -1880,4 +1883,8 @@ section
 .errorTxt {
     color: red;
     text-align: center;
+}
+
+.p-body {
+	color: #5b5b5b;
 }

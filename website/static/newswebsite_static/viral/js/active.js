@@ -3,7 +3,7 @@
 $(document).ready(function () {
   // open modal once document is loaded
   $('#myModal').modal('show')
-})
+});
 // prevent modal from closing if you click outside of it or use Esc
 $('#myModal').modal({ backdrop: 'static', keyboard: false })
 

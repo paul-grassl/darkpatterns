@@ -21,6 +21,6 @@ $(function () {
     errorElement: 'div',
     errorLabelContainer: '.errorTxt'
   })
-})
+});
 
 // ---- End of customization for study purposes --- //

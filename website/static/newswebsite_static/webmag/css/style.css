@@ -989,13 +989,20 @@ RESPONSIVE
     width: 80%;
     max-width: 600px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    border-width: medium;
+    border-style: ridge;
+    border-color: #d17b1b
 }
 
 
 .modal-header {
-    background-color: #E5E5E5;
+    background-color: white;
     color: black;
     text-align: left;
+}
+
+.modal-title-edit {
+    font-size: 20px;
 }
 
 
@@ -1004,7 +1011,7 @@ RESPONSIVE
 }
 
 .modal-footer {
-    background-color: #E5E5E5;
+    background-color: white;
     color: black;
 }
 

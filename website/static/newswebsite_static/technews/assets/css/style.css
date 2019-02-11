@@ -1757,8 +1757,7 @@ section {
 
 
 .modal-header {
-    background-color: #E5E5E5;
-    color: black;
+    background-color: #141414;
     text-align: left;
 }
 
@@ -1768,7 +1767,7 @@ section {
 }
 
 .modal-footer {
-    background-color: #E5E5E5;
+    background-color: #fcfcfc;
     color: black;
 }
 
@@ -1785,4 +1784,8 @@ section {
 .errorTxt {
     color: red;
     text-align: center;
+}
+
+.modal-title {
+    color: #d6d6d6;
 }

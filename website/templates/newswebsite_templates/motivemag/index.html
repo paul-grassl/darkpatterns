@@ -33,33 +33,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<!-- Begin Modal -->
-	<div class="modal" id="myModal" >
+	<div class="modal multi-step" id="myModal" >
 
 	    <!-- Modal content -->
 	    <div class="modal-content" id="myModal">
 	        <div class="modal-header">
-	            <h3 style="font-style: italic" class="modal-title">Cookie Statement</h3>
+	            <h3 style="font-style: italic" class="modal-title step-1" data-step="1">Cookie Statement</h3>
+				<h3 style="font-style: italic" class="modal-title step-2" data-step="2">Manage options</h3>
 	        </div>
-	        <div class="modal-body">
+	        <div class="modal-body step step-1">
 	            <p>To be compliant with the General Data Protection Regulation of the EU we need you to review your privacy settings. Motivemag and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
 	                possibly also outside) our website. Click on "Agree" or "Do Not Agree" to accept or refuse tracking cookies.</p>
 	        </div>
+			<div class="modal-body step step-2">
+	            <p>Click on "Do Not Agree" to refuse tracking cookies.</p>
+	        </div>
 			<div class="modal-footer">
 				<form action="" method="POST" id="myForm">
-					<div class="container-fluid">
+					<!-- modal page 1 -->
+					<div class="container-fluid step-1">
 						<div class="row">
 							<div class="col-6 col-sm-6">
 								<div class="boxed checkbox">
 									<label>
-										<input type="radio" name="consentForm" id="DNA" value="DNA">
-										Do Not Agree
+										<input type="radio" name="consentForm1" id="MO" value="MO">
+										Manage options
 									</label>
 								</div>
 							</div>
 							<div class="col-6 col-sm-6">
 								<div class="boxed checkbox">
 									<label>
-										<input type="radio" name="consentForm" id="A" value="A">
+										<input type="radio" name="consentForm1" id="A" value="A">
 										Agree
 									</label>
 								</div>
@@ -70,6 +75,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="errorTxt"></div>
 							</div>
 							<div class="col-6 col-sm-6">
+								<button type="submit" class="btn btn-default step" data-step="1" style="float:right;">Continue</button>
+							</div>
+						</div>
+					</div>
+					<!-- modal page 2: manage options -->
+					<div class="container-fluid step-2">
+						<div class="row">
+							<div class="col-6 col-sm-6">
+								<div class="boxed checkbox">
+									<label>
+										<input type="radio" name="consentForm2" id="DNA" value="DNA">
+										Do Not Agree
+									</label>
+								</div>
+							</div>
+							<div class="col-6 col-sm-6">
+								<!-- right part stays empty -->
+							</div>
+						</div>
+						<div class="row top-buffer">
+							<div class="col-6 col-sm-6">
+								<div class="errorTxt"></div>
+							</div>
+							<div class="col-6 col-sm-6">
+								<button type="submit" class="btn btn-default" style="float:left;">Back</button>
 								<button type="submit" class="btn btn-default" style="float:right;">Continue</button>
 							</div>
 						</div>
@@ -817,9 +847,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//JS-->
 <!-- The following is needed for modal validation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-<script type="text/javascript" src="static/newswebsite_static/motivemag/js/custom.js">
+<script type="text/javascript" src="static/newswebsite_static/motivemag/js/custom.js"></script>
+<script src="static/newswebsite_static/motivemag/js/multi-step-modal.js"></script>
+<script>
+	function sendEvent(step) {
+		$('#myModal').trigger('next.m.' + step);
+	}
 
+	function getRadioCheckedValue(radio_name)
+	{
+    	var oRadio = document.forms[0].elements[radio_name];
+
+    	for(var i = 0; i < oRadio.length; i++)
+    	{
+       		if(oRadio[i].checked)
+       		{
+          		return oRadio[i].value;
+       		}
+    	}
+
+    	return '';
+	}
+	function directCorrect(radio_name) {
+		if(radio_name == 'consentForm1') {
+			// if the form returns manage options go to page 2
+			// if the form return continue, trigger submit button somehow
+		// ...maybe I only need to check for page 1. on page to back is always the Statement
+		// and continue as well (should just not be empty)
+
+		}
+	}
 </script>
-
 </body>
 </html>

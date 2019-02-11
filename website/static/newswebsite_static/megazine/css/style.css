@@ -1527,6 +1527,12 @@ article {
     border: 1px solid black ;
     padding: 7px 8px;
     text-align: center;
+    border-radius: 10px;
+}
+
+.aesthetic-manipulation {
+    background-color: #2d90ff;
+    color: white;
 }
 
 .top-buffer {
