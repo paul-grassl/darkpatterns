@@ -24,8 +24,13 @@ def welcome():
         if request.form['consent'] == 'A':
             return redirect(url_for('demographics'))
         else:
-            return redirect('https://www.google.com')  # create some kind of goodbye page for all who leave
+            return redirect(url_for('goodbye'))
     return render_template('welcome.html', title='Welcome', form=form)
+
+
+@app.route("/goodbye")
+def goodbye():
+    return render_template('goodbye.html', title='Goodbye')
 
 
 # route to demographic information form
@@ -34,13 +39,13 @@ def demographics():
     form = DemographicsForm()
     if form.validate_on_submit():
         # if session.new:
-            # randomize websiteList
+        # randomize websiteList
         randomWebsiteList = random.sample(websiteList, len(websiteList))
         participant = DemographicData(gender=form.gender.data,
                                       age=form.age.data,
                                       nationality=form.nationality.data,
                                       websiteList=str(randomWebsiteList))
-        session.anonymous_user_id = participant.id
+        session['anonymous_user_id'] = participant.id
         # save to database
         db.session.add(participant)
         db.session.commit()
@@ -60,7 +65,7 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        consentDecision = ModalData(participant_bref=DemographicData.query.get(session.anonymous_user_id),
+        consentDecision = ModalData(participant_bref=session['anonymous_user_id'],
                                     consent=request.form['consentForm'])
         db.session.add(consentDecision)
         db.session.commit()
