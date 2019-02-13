@@ -49,70 +49,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	            <p>Click on "Do Not Agree" to refuse tracking cookies.</p>
 	        </div>
 			<div class="modal-footer">
-				<!-- modal page 1 -->
-				<div class="step step-1">
-					<form class="step-1" action="" method="POST" id="myForm1">
-						<div class="container-fluid step-1">
-							<div class="row step-1">
-								<div class="col-6 col-sm-6 step-1">
-									<div class="boxed checkbox step-1">
-										<label class="step-1">
-											<input class="step-1" type="radio" name="consentForm1" id="MO" value="MO">
-											Manage options
-										</label>
-									</div>
-								</div>
-								<div class="col-6 col-sm-6 step-1">
-									<div class="boxed checkbox step-1">
-										<label class="step-1">
-											<input class="step-1" type="radio" name="consentForm1" id="A" value="A">
-											Agree
-										</label>
-									</div>
+				<form action="" method="POST" id="myForm">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-6 col-sm-6">
+								<div class="boxed checkbox">
+									<label class="step step-1">
+										<input class="step step-1" data-step="1" type="radio" name="consentForm1" id="MO" value="MO">
+										Manage options
+									</label>
+									<label class="step step-2">
+										<input class="step step-2" data-step="2" type="radio" name="consentForm2" id="DNA" value="DNA">
+										Do Not Agree
+									</label>
 								</div>
 							</div>
-							<div class="row top-buffer step-1">
-								<div class="col-6 col-sm-6 step-1">
-									<div class="errorTxt step-1"></div>
-								</div>
-								<div class="col-6 col-sm-6 step-1">
-									<button type="submit" class="btn btn-default step step-1" data-step="1" style="float:right;" onclick="directCorrect('consentForm1')">Continue</button>
+							<div class="col-6 col-sm-6">
+								<div class="boxed checkbox step step-1">
+									<label class=" step step-1">
+										<input class="step step-1" data-step="1" type="radio" name="consentForm1" id="A" value="A">
+										Agree
+									</label>
 								</div>
 							</div>
 						</div>
-					</form>
-				</div>
-				<!-- modal page 2 -->
-				<div class="step step-2">
-					<form class="step-2" action="" method="POST" id="myForm2">
-						<div class="container-fluid step-2">
-							<div class="row step-2">
-								<div class="col-6 col-sm-6 step-2">
-									<div class="boxed checkbox step-2">
-										<label class="step-2">
-											<input class="step-2" type="radio" name="consentForm2" id="DNA" value="DNA">
-											Do Not Agree
-										</label>
-									</div>
-								</div>
-								<div class="col-6 col-sm-6 step-2">
-									<div class="boxed checkbox step-2">
-											<!-- right part stays empty -->
-									</div>
-								</div>
+						<div class="row top-buffer">
+							<div class="col-6 col-sm-6">
+								<div class="errorTxt"></div>
 							</div>
-							<div class="row top-buffer step-2">
-								<div class="col-6 col-sm-6 step-2">
-									<div class="errorTxt step-2"></div>
-								</div>
-								<div class="col-6 col-sm-6 step-2">
-									<button type="submit" class="btn btn-default step step-2" style="float:right;">Continue</button>
-									<button type="button" class="btn btn-default step step-2" style="float:right;" onclick="sendEvent(1)">Back</button>
-								</div>
+							<div class="col-6 col-sm-6">
+								<button type="submit" class="btn btn-default step step-1" data-step="1" style="float:right;" onclick="directCorrect('consentForm1')">Continue</button>
+								<button type="submit" class="btn btn-default step step-2" data-step="2" style="float:right;">Continue</button>
+								<button type="button" class="btn btn-default step step-2" data-step="2" style="float:right;" onclick="sendEvent(1)">Back</button>
 							</div>
 						</div>
-					</form>
-				</div>
+					</div>
+				</form>
 			</div>
 	    </div>
 	</div>
@@ -847,46 +819,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--JS-->
   <script type="text/javascript" src="static/newswebsite_static/motivemag/js/bootstrap-3.1.1.min.js"></script>
-  <script type="text/javascript">
-	  $('a').bind("click.myDisable", function() {
-  	    return false;
-  	});
-  </script>
-<!--//JS-->
 <!-- The following is needed for modal validation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-<script type="text/javascript" src="static/newswebsite_static/motivemag/js/custom.js"></script>
 <script src="static/newswebsite_static/motivemag/js/multi-step-modal.js"></script>
-<script>
-	function sendEvent(step) {
-		$('#myModal').trigger('next.m.' + step);
-	}
+<script src="static/newswebsite_static/motivemag/js/custom.js"></script>
 
-	function getRadioCheckedValue(radio_name)
-	{
-    	var oRadio = document.forms[0].elements[radio_name];
 
-    	for(var i = 0; i < oRadio.length; i++)
-    	{
-       		if(oRadio[i].checked)
-       		{
-          		return oRadio[i].value;
-       		}
-    	}
-
-    	return '';
-	}
-
-	function directCorrect(radio_name) {
-		// if the form returns 'manage options' go to page 2
-		if(getRadioCheckedValue(radio_name) === 'MO') {
-			sendEvent(2)
-		}
-		// if the form returns 'Agree' submit form
-			else {
-				$('#myForm').submit();
-			}
-	}
-</script>
 </body>
 </html>

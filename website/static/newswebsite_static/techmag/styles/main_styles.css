@@ -1874,6 +1874,7 @@ section
     border: 1px solid black ;
     padding: 7px 8px;
     text-align: center;
+	border-radius: 10px;
 }
 
 .top-buffer {

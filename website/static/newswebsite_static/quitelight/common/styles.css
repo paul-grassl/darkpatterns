@@ -2439,6 +2439,7 @@ footer i{ font-size: 1.4em; }
     border: 1px solid black ;
     padding: 7px 8px;
     text-align: center;
+	border-radius: 10px;
 }
 
 .top-buffer {
