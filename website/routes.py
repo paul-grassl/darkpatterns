@@ -45,10 +45,11 @@ def demographics():
                                       age=form.age.data,
                                       nationality=form.nationality.data,
                                       websiteList=str(randomWebsiteList))
-        session['anonymous_user_id'] = participant.id
         # save to database
         db.session.add(participant)
         db.session.commit()
+        print('demographics: participant id:', participant.id)
+        session['anonymous_user_id'] = participant.id
         # else:
         #     participant = DemographicData.query.get(session.anonymous_user_id)
         return redirect(url_for('megazine')) #randomWebsiteList[0]
@@ -65,7 +66,10 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        consentDecision = ModalData(participant_bref=session['anonymous_user_id'],
+        print('magazine: participant id:', session['anonymous_user_id'])
+        participant = DemographicData.query.get(session['anonymous_user_id'])
+        print('participant object:', participant)
+        consentDecision = ModalData(participant_bref=participant,
                                     consent=request.form['consentForm'])
         db.session.add(consentDecision)
         db.session.commit()

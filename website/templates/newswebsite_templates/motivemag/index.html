@@ -36,14 +36,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="modal multi-step" id="myModal" >
 
 	    <!-- Modal content -->
-	    <div class="modal-content" id="myModal">
+	    <div class="modal-content">
 	        <div class="modal-header">
 	            <h3 style="font-style: italic" class="modal-title step-1" data-step="1">Cookie Statement</h3>
 				<h3 style="font-style: italic" class="modal-title step-2" data-step="2">Manage options</h3>
 	        </div>
 	        <div class="modal-body step step-1">
 	            <p>To be compliant with the General Data Protection Regulation of the EU we need you to review your privacy settings. Motivemag and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
-	                possibly also outside) our website. Click on "Agree" or "Do Not Agree" to accept or refuse tracking cookies.</p>
+	                possibly also outside) our website. Click on "Agree" to accept tracking cookies or "Manage options" to change your settings.</p>
 	        </div>
 			<div class="modal-body step step-2">
 	            <p>Click on "Do Not Agree" to refuse tracking cookies.</p>
@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="errorTxt"></div>
 							</div>
 							<div class="col-6 col-sm-6">
-								<button type="submit" class="btn btn-default step step-1" data-step="1" style="float:right;" onclick="directCorrect('consentForm1')">Continue</button>
+								<button type="button" class="btn btn-default step step-1" data-step="1" style="float:right;" onclick="directCorrect()">Continue</button>
 								<button type="submit" class="btn btn-default step step-2" data-step="2" style="float:right;">Continue</button>
 								<button type="button" class="btn btn-default step step-2" data-step="2" style="float:right;" onclick="sendEvent(1)">Back</button>
 							</div>
@@ -823,7 +823,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
 <script src="static/newswebsite_static/motivemag/js/multi-step-modal.js"></script>
 <script src="static/newswebsite_static/motivemag/js/custom.js"></script>
+<script type="text/javascript">
+// disable all hyperlinks
+$('a').bind("click.myDisable", function() {
+    return false;
+});
 
+function sendEvent(step) {
+  $('#myModal').trigger('next.m.' + step);
+};
+</script>
 
 </body>
 </html>

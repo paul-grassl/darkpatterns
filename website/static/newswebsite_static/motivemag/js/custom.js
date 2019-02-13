@@ -7,10 +7,6 @@ $(document).ready(function () {
 // prevent modal from closing if you click outside of it or use Esc
 $('#myModal').modal({ backdrop: 'static', keyboard: false })
 
-// disable all hyperlinks
-$('a').bind("click.myDisable", function() {
-    return false;
-});
 
 // require input before continuation possible
 $(function () {
@@ -32,33 +28,18 @@ $(function () {
   })
 });
 
-$(function sendEvent(step) {
-  $('#myModal').trigger('next.m.' + step);
-});
 
-function getRadioCheckedValue (radio_name) {
-    var oRadio = document.forms[0].elements[radio_name];
-
-    for(let i = 0; i < oRadio.length; i++)
-    {
-        if(oRadio[i].checked)
-        {
-            return oRadio[i].value;
-        }
-    }
-
-    return '';
-};
-
-$(function directCorrect(radio_name) {
+function directCorrect(radio_name) {
   // if the form returns 'manage options' go to page 2
-  if(getRadioCheckedValue(radio_name) === 'MO') {
+  var radio_value = $('input[name=consentForm1]:checked').val();
+  console.log('radio_value:', radio_value);
+  if (radio_value === 'MO') {
     sendEvent(2)
   }
   // if the form returns 'Agree' submit form
-    else {
-      $('#myForm').submit();
-    }
-});
+  else {
+    $('#myForm').submit();
+  }
+};
 
 // ---- End of customization for study purposes --- //
