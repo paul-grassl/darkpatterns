@@ -12,14 +12,10 @@ $('#myModal').modal({ backdrop: 'static', keyboard: false })
 $(function () {
   $('#myForm').validate({
     rules: {
-      consentForm1: 'required',
-      consentForm2: 'required'
+      consentForm: 'required',
     },
     messages: {
-      consentForm1: {
-        required: 'Please select one of the options'
-      },
-      consentForm2: {
+      consentForm: {
         required: 'Please select one of the options'
       }
     },
@@ -29,10 +25,9 @@ $(function () {
 });
 
 
-function directCorrect(radio_name) {
+function directCorrect() {
   // if the form returns 'manage options' go to page 2
-  var radio_value = $('input[name=consentForm1]:checked').val();
-  console.log('radio_value:', radio_value);
+  var radio_value = $('input[name=consentForm]:checked').val();
   if (radio_value === 'MO') {
     sendEvent(2)
   }

@@ -66,13 +66,12 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        print('magazine: participant id:', session['anonymous_user_id'])
         participant = DemographicData.query.get(session['anonymous_user_id'])
-        print('participant object:', participant)
         consentDecision = ModalData(participant_bref=participant,
                                     consent=request.form['consentForm'])
         db.session.add(consentDecision)
         db.session.commit()
+        # render_template('/newswebsite_templates/megazine/index.html', title='Megazine')
         return redirect(url_for('motivemag'))
     return render_template('/newswebsite_templates/megazine/index.html', title='Megazine')
 
@@ -80,24 +79,48 @@ def megazine():
 # route to website 3: motivemag
 @app.route("/motivemag", methods=['GET', 'POST'])
 def motivemag():
+    if request.method == 'POST':
+        participant = DemographicData.query.get(session['anonymous_user_id'])
+        consentDecision = ModalData(participant_bref=participant,
+                                    consent=request.form['consentForm'])
+        db.session.add(consentDecision)
+        db.session.commit()
     return render_template('/newswebsite_templates/motivemag/index.html', title='Motivemag')
 
 
 # route to website 4: quitelight
 @app.route("/quitelight", methods=['GET', 'POST'])
 def quitelight():
+    if request.method == 'POST':
+        participant = DemographicData.query.get(session['anonymous_user_id'])
+        consentDecision = ModalData(participant_bref=participant,
+                                    consent=request.form['consentForm'])
+        db.session.add(consentDecision)
+        db.session.commit()
     return render_template('/newswebsite_templates/quitelight/index.html', title='Quitelight')
 
 
 # route to website 5: techmag
 @app.route("/techmag", methods=['GET', 'POST'])
 def techmag():
+    if request.method == 'POST':
+        participant = DemographicData.query.get(session['anonymous_user_id'])
+        consentDecision = ModalData(participant_bref=participant,
+                                    consent=request.form['consentForm'])
+        db.session.add(consentDecision)
+        db.session.commit()
     return render_template('/newswebsite_templates/techmag/index.html', title='Techmag')
 
 
 # route to website 6: technews
 @app.route("/technews", methods=['GET', 'POST'])
 def technews():
+    if request.method == 'POST':
+        participant = DemographicData.query.get(session['anonymous_user_id'])
+        consentDecision = ModalData(participant_bref=participant,
+                                    consent=request.form['consentForm'])
+        db.session.add(consentDecision)
+        db.session.commit()
     return render_template('/newswebsite_templates/technews/index.html', title='Technews')
 
 

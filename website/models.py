@@ -25,7 +25,7 @@ class ModalData(db.Model):
     consent = db.Column(db.String(3), nullable=False)
 
     def __repr__(self):
-        return f"modalData('{self.participantId}', '{self.consent}')"
+        return f"modalData('{self.participantId}', '{self.id}', '{self.consent}')"
 
 
 class ControlAndDeliberationData(db.Model):
@@ -41,7 +41,7 @@ class ControlAndDeliberationData(db.Model):
     deliberation = db.Column(db.Numeric, nullable=False)
 
     def __repr__(self):
-        return f"controlAndDeliberationData('{self.participantId}', '{self.perceivedControlQ1}', '{self.perceivedControlQ2}', '{self.perceivedControlQ3}', '{self.perceivedControlQ4}', '{self.perceivedControlQ5}', '{self.manipulationCheck}', '{self.deliberation}')"
+        return f"controlAndDeliberationData('{self.participantId}', '{self.id}', '{self.perceivedControlQ1}', '{self.perceivedControlQ2}', '{self.perceivedControlQ3}', '{self.perceivedControlQ4}', '{self.perceivedControlQ5}', '{self.manipulationCheck}', '{self.deliberation}')"
 
 
 class PrivacyConcernsData(db.Model):
@@ -54,4 +54,4 @@ class PrivacyConcernsData(db.Model):
     correctDisplayed = db.Column(db.String(1), nullable=False)
 
     def __repr__(self):
-        return f"privacyConcernsData('{self.participantId}', '{self.privacyConcernsQ1}', '{self.privacyConcernsQ2}', '{self.privacyConcernsQ3}', '{self.correctDisplayed}')"
+        return f"privacyConcernsData('{self.participantId}', '{self.id}', '{self.privacyConcernsQ1}', '{self.privacyConcernsQ2}', '{self.privacyConcernsQ3}', '{self.correctDisplayed}')"

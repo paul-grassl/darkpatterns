@@ -23,6 +23,10 @@ $(function () {
   })
 })
 
+$('#myForm').submit(function () {
+   $('#myModal').modal('hide');
+});
+
 // ---- End of customization for study purposes --- //
 
 ;(function () {

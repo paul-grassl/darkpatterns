@@ -22,48 +22,58 @@
 <body>
 
     <!-- Begin Modal -->
-	<div class="modal" id="myModal" >
+	<div class="modal multi-step" id="myModal" >
 
 	    <!-- Modal content -->
-	    <div class="modal-content" id="myModal">
+	    <div class="modal-content">
 	        <div class="modal-header">
-	            <h4 class="modal-title modal-title-edit">Before you continue...</h4>
+	            <h4 class="modal-title modal-title-edit step-1" data-step="1">Before you continue...</h4>
+                <h4 class="modal-title step-2" data-step="2">Manage options</h4>
 	        </div>
-	        <div class="modal-body">
+	        <div class="modal-body step step-1">
 	            <p>To be compliant with the General Data Protection Regulation of the EU we need you to review your privacy settings. Viral and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
 	                possibly also outside) our website. Click on "Agree" or "Do Not Agree" to accept or refuse tracking cookies.</p>
 	        </div>
+            <div class="modal-body step step-2">
+                <p>Click on "Do Not Agree" to refuse tracking cookies.</p>
+            </div>
 			<div class="modal-footer">
-				<form action="" method="POST" id="myForm">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-6 col-sm-6">
-								<div class="boxed checkbox">
-									<label>
-										<input type="radio" name="consentForm" id="DNA" value="DNA">
-										Do Not Agree
-									</label>
-								</div>
-							</div>
-							<div class="col-6 col-sm-6">
-								<div class="boxed checkbox">
-									<label>
-										<input type="radio" name="consentForm" id="A" value="A">
-										Agree
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="row top-buffer">
-							<div class="col-6 col-sm-6">
-								<div class="errorTxt"></div>
-							</div>
-							<div class="col-6 col-sm-6">
-								<button type="submit" class="btn btn-default" style="float:right;">Continue</button>
-							</div>
-						</div>
-					</div>
-				</form>
+                <form action="" method="POST" id="myForm">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 col-sm-6">
+                                <div class="boxed checkbox">
+                                    <label class="step step-1">
+                                        <input class="step step-1" data-step="1" type="radio" name="consentForm" id="MO" value="MO">
+                                        Manage options
+                                    </label>
+                                    <label class="step step-2">
+                                        <input class="step step-2" data-step="2" type="radio" name="consentForm" id="DNA" value="DNA">
+                                        Do Not Agree
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <div class="boxed checkbox aesthetic-manipulation step step-1">
+                                    <label class=" step step-1">
+                                        <input class="step step-1" data-step="1" type="radio" name="consentForm" id="A" value="A">
+                                        Agree
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-buffer">
+                            <div class="col-6 col-sm-6">
+                                <div class="errorTxt"></div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <button type="button" class="btn btn-default step step-1" data-step="1" style="float:right;" onclick="directCorrect()">Continue</button>
+                                <button type="submit" class="btn btn-default step step-2" data-step="2" style="float:right; margin-left:4px">Continue</button>
+                                <button type="button" class="btn btn-default step step-2" data-step="2" style="float:right;" onclick="sendEvent(1)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 			</div>
 	    </div>
 	</div>
@@ -816,6 +826,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="static/newswebsite_static/viral/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- The following is needed for modal validation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <!-- The following is needed for multi-step modals -->
+    <script src="static/newswebsite_static/viral/js/multi-step-modal.js"></script>
     <!-- Popper js -->
     <script src="static/newswebsite_static/viral/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
@@ -824,6 +836,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="static/newswebsite_static/viral/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="static/newswebsite_static/viral/js/active.js"></script>
+
+    <!-- Adjustments -->
+    <script type="text/javascript">
+    // disable all hyperlinks
+    $('a').bind("click.myDisable", function() {
+    return false;
+    });
+
+    // go to different modal page
+    function sendEvent(step) {
+    $('#myModal').trigger('next.m.' + step);
+    };
+    </script>
+
 </body>
 
 </html>
