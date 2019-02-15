@@ -47,10 +47,10 @@
         </div>
         <div class="modal-body step step-1">
             <p>Technews and other third parties use cookies and similar techniques which may collect information about you and your behavior within (and
-                possibly also outside) our website. To be compliant with the General Data Protection Regulation of the EU we need you to review your privacy settings. Click on "Agree" to accept tracking cookies or "Manage options" to change your settings.</p>
+                possibly also outside) our website. To be compliant with the General Data Protection Regulation of the EU we need you to review your privacy settings. Choose "Agree" to accept tracking cookies or "Manage options" to change your settings.</p>
         </div>
         <div class="modal-body step step-2">
-            <p>Click on "Do Not Agree" to refuse tracking cookies.</p>
+            <p>Choose "Do Not Agree" to refuse tracking cookies.</p>
         </div>
 		<div class="modal-footer">
             <form action="" method="POST" id="myForm">
@@ -79,11 +79,12 @@
                     </div>
                     <div class="row top-buffer">
                         <div class="col-6 col-sm-6">
-                            <div class="errorTxt"></div>
+                            <div class="errorTxt step step-1"></div>
+                            <div class="errorTxt2 step step-2" id="errorTxt2"></div>
                         </div>
                         <div class="col-6 col-sm-6">
                             <button type="button" class="btn btn-default step step-1" data-step="1" style="float:right;" onclick="directCorrect()">Continue</button>
-                            <button type="submit" class="btn btn-default step step-2" data-step="2" style="float:right;">Continue</button>
+                            <button type="button" class="btn btn-default step step-2" data-step="2" style="float:right; margin-left:4px" onclick="submitCorrect()">Continue</button>
                             <button type="button" class="btn btn-default step step-2" data-step="2" style="float:right;" onclick="sendEvent(1)">Back</button>
                         </div>
                     </div>

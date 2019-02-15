@@ -1022,11 +1022,21 @@ RESPONSIVE
     border-radius: 10px;
 }
 
+.aesthetic-manipulation {
+    background-color: #2d90ff;
+    color: white;
+}
+
 .top-buffer {
     margin-top:10px;
 }
 
 .errorTxt {
+    color: red;
+    text-align: center;
+}
+
+.errorTxt2 {
     color: red;
     text-align: center;
 }

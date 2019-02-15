@@ -12,7 +12,7 @@ $('#myModal').modal({ backdrop: 'static', keyboard: false })
 $(function () {
   $('#myForm').validate({
     rules: {
-      consentForm: 'required',
+      consentForm: 'required'
     },
     messages: {
       consentForm: {
@@ -24,9 +24,15 @@ $(function () {
   })
 });
 
+$("input[type='radio']").change(function() {
+  if($(this).val()=='DNA')
+  {
+    document.getElementById('errorTxt2').innerHTML = ''
+  }
+})
 
 function directCorrect() {
-  // if the form returns 'manage options' go to page 2
+  // if the form returns 'manage options' go to page 2 otherwise submit form
   var radio_value = $('input[name=consentForm]:checked').val();
   if (radio_value === 'MO') {
     sendEvent(2)
@@ -36,5 +42,15 @@ function directCorrect() {
     $('#myForm').submit();
   }
 };
+
+function submitCorrect() {
+  var radio_value = $('input[name=consentForm]:checked').val();
+  if (radio_value === 'DNA') {
+    $('#myForm').submit();
+  }
+  else {
+    document.getElementById('errorTxt2').innerHTML = 'Please select one of the options'
+  }
+}
 
 // ---- End of customization for study purposes --- //
