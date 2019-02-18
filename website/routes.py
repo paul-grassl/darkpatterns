@@ -4,6 +4,7 @@ from website import app, db
 from website.models import DemographicData, ModalData, ControlAndDeliberationData, PrivacyConcernsData
 from website.questionnaires import DemographicsForm, WebsiteDesignForm, ControlAndDeliberationForm, PrivacyConcernsForm, WelcomeForm
 import random
+import json
 from website import stimuliList
 
 
@@ -38,27 +39,58 @@ def goodbye():
 def demographics():
     form = DemographicsForm()
     if form.validate_on_submit():
-        # if session.new:
-        # randomize websiteList
-        randomWebsiteList = random.sample(websiteList, len(websiteList))
-        participant = DemographicData(gender=form.gender.data,
-                                      age=form.age.data,
-                                      nationality=form.nationality.data,
-                                      websiteList=str(randomWebsiteList))
-        # save to database
-        db.session.add(participant)
-        db.session.commit()
-        print('demographics: participant id:', participant.id)
-        session['anonymous_user_id'] = participant.id
-        # else:
-        #     participant = DemographicData.query.get(session.anonymous_user_id)
-        return redirect(url_for('megazine')) #randomWebsiteList[0]
+        if 'anonymous_user_id' not in session:
+            # randomize websiteList
+            randomWebsiteList = random.sample(websiteList, len(websiteList))
+            s_randomWebsiteList = json.dumps(randomWebsiteList)
+            participant = DemographicData(gender=form.gender.data,
+                                          age=form.age.data,
+                                          nationality=form.nationality.data,
+                                          websiteList=s_randomWebsiteList)
+            # save to database
+            db.session.add(participant)
+            db.session.commit()
+            print('demographics: participant id:', participant.id)
+            session['anonymous_user_id'] = participant.id
+            print('demographics: randomWebsiteList:', participant.websiteList)
+            session['websiteList'] = participant.websiteList
+            return redirect(url_for('distributor'))
+        else:
+            return redirect(url_for('distributor'))
     return render_template('demographics.html', title='Demographic Information', form=form)
+
+
+# distributor route (randomization)
+@app.route("/distributor")
+def distributor():
+    l_randomWebsiteList = json.loads(session['websiteList'])
+    if len(l_randomWebsiteList) != 0:
+        nextPage = l_randomWebsiteList[0]
+        l_randomWebsiteList.pop(0)
+        s_randomWebsiteList = json.dumps(l_randomWebsiteList)
+        session['websiteList'] = s_randomWebsiteList
+        print('s_randomWebsiteList:', s_randomWebsiteList)
+        return redirect(url_for(nextPage))
+    else:
+        return redirect(url_for())
+    return render_template('redirecting.html', title='Redirecting')
 
 
 # route to website 1: avision
 @app.route("/avision", methods=['GET', 'POST'])
 def avision():
+    if request.method == 'POST':
+        if 'anonymous_user_id' in session:
+            participant = DemographicData.query.get(session['anonymous_user_id'])
+            print('participant', participant)
+            consentDecision = ModalData(participant_bref=participant,
+                                        consent=request.form['consentForm'])
+            db.session.add(consentDecision)
+            db.session.commit()
+            return render_template('/newswebsite_templates/avision/index2.html', title='Avision')
+
+        else:
+            return render_template('/newswebsite_templates/avision/index2.html', title='Avision')
     return render_template('/newswebsite_templates/avision/index.html', title='Avision')
 
 
@@ -66,13 +98,16 @@ def avision():
 @app.route("/megazine", methods=['GET', 'POST'])
 def megazine():
     if request.method == 'POST':
-        participant = DemographicData.query.get(session['anonymous_user_id'])
-        consentDecision = ModalData(participant_bref=participant,
-                                    consent=request.form['consentForm'])
-        db.session.add(consentDecision)
-        db.session.commit()
-        # render_template('/newswebsite_templates/megazine/index.html', title='Megazine')
-        return redirect(url_for('motivemag'))
+        if 'anonymous_user_id' in session:
+            participant = DemographicData.query.get(session['anonymous_user_id'])
+            print('participant', participant)
+            consentDecision = ModalData(participant_bref=participant,
+                                        consent=request.form['consentForm'])
+            db.session.add(consentDecision)
+            db.session.commit()
+            return render_template('/newswebsite_templates/megazine/index2.html', title='Megazine')
+        else:
+            return render_template('/newswebsite_templates/megazine/index2.html', title='Megazine')
     return render_template('/newswebsite_templates/megazine/index.html', title='Megazine')
 
 
@@ -80,11 +115,16 @@ def megazine():
 @app.route("/motivemag", methods=['GET', 'POST'])
 def motivemag():
     if request.method == 'POST':
-        participant = DemographicData.query.get(session['anonymous_user_id'])
-        consentDecision = ModalData(participant_bref=participant,
-                                    consent=request.form['consentForm'])
-        db.session.add(consentDecision)
-        db.session.commit()
+        if 'anonymous_user_id' in session:
+            participant = DemographicData.query.get(session['anonymous_user_id'])
+            print('participant', participant)
+            consentDecision = ModalData(participant_bref=participant,
+                                        consent=request.form['consentForm'])
+            db.session.add(consentDecision)
+            db.session.commit()
+            return render_template('/newswebsite_templates/motivemag/index2.html', title='Motivemag')
+        else:
+            return render_template('/newswebsite_templates/motivemag/index2.html', title='Motivemag')
     return render_template('/newswebsite_templates/motivemag/index.html', title='Motivemag')
 
 
@@ -92,11 +132,16 @@ def motivemag():
 @app.route("/quitelight", methods=['GET', 'POST'])
 def quitelight():
     if request.method == 'POST':
-        participant = DemographicData.query.get(session['anonymous_user_id'])
-        consentDecision = ModalData(participant_bref=participant,
-                                    consent=request.form['consentForm'])
-        db.session.add(consentDecision)
-        db.session.commit()
+        if 'anonymous_user_id' in session:
+            participant = DemographicData.query.get(session['anonymous_user_id'])
+            print('participant', participant)
+            consentDecision = ModalData(participant_bref=participant,
+                                        consent=request.form['consentForm'])
+            db.session.add(consentDecision)
+            db.session.commit()
+            return render_template('/newswebsite_templates/quitelight/index2.html', title='Quitelight')
+        else:
+            return render_template('/newswebsite_templates/quitelight/index2.html', title='Quitelight')
     return render_template('/newswebsite_templates/quitelight/index.html', title='Quitelight')
 
 
@@ -140,6 +185,8 @@ def webmag():
 @app.route("/newswebsitedesign", methods=['GET', 'POST'])
 def websiteDesign():
     form = WebsiteDesignForm()
+    if form.validate_on_submit():
+        return redirect(url_for('distributor'))
     return render_template('websiteDesign.html', title='News website design', form=form)
 
 
