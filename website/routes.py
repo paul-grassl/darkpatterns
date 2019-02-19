@@ -88,9 +88,10 @@ def distributor2():
         s_randomWebsiteList = json.dumps(l_randomWebsiteList)
         session['websiteList2'] = s_randomWebsiteList
         print('s_randomWebsiteList:', s_randomWebsiteList)
-        return redirect(url_for('questionnaire1'))
+        print('nextScreenshot:', nextScreenshot)
+        return redirect(url_for('controlAndDeliberation'))
     else:
-        return redirect(url_for('questionnaire2'))
+        return redirect(url_for('controlAndDeliberation'))
     return render_template('redirecting.html', title='Redirecting')
 
 
@@ -243,11 +244,11 @@ def websiteDesign():
 # route to perceived control and deliberation form
 @app.route("/questionnaire1", methods=['GET', 'POST'])
 def controlAndDeliberation():
+    nextScreenshot = session['nextScreenshot']
     form = ControlAndDeliberationForm()
     if form.validate_on_submit():
         if 'anonymous_user_id' in session:
             participant = DemographicData.query.get(session['anonymous_user_id'])
-            nextScreenshot = session['nextScreenshot']
             questionnaire1Data = ControlAndDeliberationData(participant_bref=participant,
                                                             perceivedControlQ1=form.perceivedControlQ1.data,
                                                             perceivedControlQ2=form.perceivedControlQ2.data,
