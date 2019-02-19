@@ -22,10 +22,11 @@ class ModalData(db.Model):
     __tablename__ = 'modal_data'
     id = db.Column(db.Integer, primary_key=True)
     participantId = db.Column(db.Integer, db.ForeignKey('demographic_data.id'), nullable=False)
+    currentWebsite = db.Column(db.String(50), nullable=False)
     consent = db.Column(db.String(3), nullable=False)
 
     def __repr__(self):
-        return f"modalData('{self.participantId}', '{self.id}', '{self.consent}')"
+        return f"modalData('{self.participantId}', '{self.id}', '{self.currentWebsite}', '{self.consent}')"
 
 
 class ControlAndDeliberationData(db.Model):

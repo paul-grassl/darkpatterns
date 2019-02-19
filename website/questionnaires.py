@@ -110,3 +110,6 @@ class WebsiteDesignForm(FlaskForm):
                         '3. Overall, how appealing did you find the design of this website on first sight?',
                         default = 0
                         )
+    submit = SubmitField(
+                        'Next'
+                        )

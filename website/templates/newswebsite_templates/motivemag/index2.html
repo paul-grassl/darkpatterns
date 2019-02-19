@@ -761,14 +761,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--JS-->
-  <script type="text/javascript" src="static/newswebsite_static/motivemag/js/bootstrap-3.1.1.min.js"></script>
-<!-- The following is needed for modal validation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="static/newswebsite_static/motivemag/js/bootstrap-3.1.1.min.js"></script>
 <script src="static/newswebsite_static/motivemag/js/multi-step-modal.js"></script>
 <script type="text/javascript">
 // disable all hyperlinks
 $('a').bind("click.myDisable", function() {
     return false;
+});
+
+$(document).ready(function () {
+    // Handler for .ready() called.
+    window.setTimeout(function () {
+        location.href = "http://localhost:5000/newswebsitedesign";
+    }, 7000);
 });
 
 </script>
