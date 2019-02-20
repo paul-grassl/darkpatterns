@@ -2,7 +2,7 @@ $(document).ready(function () {
     // Handler for .ready() called.
     window.setTimeout(function () {
         location.href = "http://localhost:5000/newswebsitedesign";
-    }, 7000);
+    }, 3000);
 });
 
 (function ($) {

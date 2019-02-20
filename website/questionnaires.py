@@ -92,6 +92,11 @@ class PrivacyConcernsForm(FlaskForm):
                        choices=[('Y', 'Yes, all of them'), ('N', 'No, not all of them')],
                        validators=[InputRequired()]
                        )
+    whichDevice = RadioField(
+                       'On which device did you do the study?',
+                       choices=[('PC', 'PC'), ('Phone', 'Phone'), ('Tablet', 'Tablet')],
+                       validators=[InputRequired()]
+                       )
     submit = SubmitField(
                         'Next'
                         )

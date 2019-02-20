@@ -91,7 +91,7 @@ def distributor2():
         print('nextScreenshot:', nextScreenshot)
         return redirect(url_for('controlAndDeliberation'))
     else:
-        return redirect(url_for('controlAndDeliberation'))
+        return redirect(url_for('privacyConcerns'))
     return render_template('redirecting.html', title='Redirecting')
 
 

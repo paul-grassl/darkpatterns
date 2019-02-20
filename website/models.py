@@ -53,6 +53,7 @@ class PrivacyConcernsData(db.Model):
     privacyConcernsQ2 = db.Column(db.String(1), nullable=False)
     privacyConcernsQ3 = db.Column(db.String(1), nullable=False)
     correctDisplayed = db.Column(db.String(1), nullable=False)
+    whichDevice = db.Column(db.String(10), nullable=False)
 
     def __repr__(self):
-        return f"privacyConcernsData('{self.participantId}', '{self.id}', '{self.privacyConcernsQ1}', '{self.privacyConcernsQ2}', '{self.privacyConcernsQ3}', '{self.correctDisplayed}')"
+        return f"privacyConcernsData('{self.participantId}', '{self.id}', '{self.privacyConcernsQ1}', '{self.privacyConcernsQ2}', '{self.privacyConcernsQ3}', '{self.correctDisplayed}', '{self.whichDevice}')"
