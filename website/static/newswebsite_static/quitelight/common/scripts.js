@@ -25,7 +25,7 @@ $(function () {
 
 // ---- End of customization for study purposes --- //
 
-(function ($) {
+$(function () {
 
     "use strict";
 
@@ -74,7 +74,7 @@ $(function () {
 
 	enableSwiper();
 
-})(jQuery);
+});
 
 
 function dropdownMenu(winWidth){
