@@ -104,11 +104,11 @@ class PrivacyConcernsForm(FlaskForm):
 
 class WebsiteDesignForm(FlaskForm):
     webDesignQ1 = DecimalRangeField(
-                        '1. How appealing did you find the layout of this news website?',
+                        '1. How appealing did you find the layout of this news website on first sight?',
                         default = 0
                         )
     webDesignQ2 = DecimalRangeField(
-                        '2. How appealing did you find the colours of this news website?',
+                        '2. How appealing did you find the colours of this news website on first sight?',
                         default = 0
                         )
     webDesignQ3 = DecimalRangeField(

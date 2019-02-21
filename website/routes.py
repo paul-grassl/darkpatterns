@@ -293,4 +293,4 @@ def privacyConcerns():
 # route to thank you page
 @app.route("/thankyou")
 def thankYou():
-    return render_template('thankyou.html', title='Thank you')
+    return render_template('thankYou.html', title='Thank you')
