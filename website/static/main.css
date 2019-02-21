@@ -21,3 +21,16 @@ ul {
     max-width: 700px;
     text-align: justify;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.top-space {
+    margin-top: 1cm;
+}
+
+.bottom-space {
+    margin-bottom: 0.5cm;
+}

@@ -4,7 +4,7 @@
         <form action="" method="POST">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Questionnaire 2</legend>
+                <legend class="border-bottom mb-4">Questionnaire</legend>
                 <p>For each statement, please indicate how much it applies to you, ranging from 1 (strongly agree) to 7 (strongly disagree):</p>
                 <!-- QUESTION 1 -->
                 <div class="form-group">
@@ -36,6 +36,13 @@
                     {{ form.correctDisplayed.label }}
                     {{ form.correctDisplayed }}
                     {% for error in form.correctDisplayed.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    {{ form.whichDevice.label }}
+                    {{ form.whichDevice }}
+                    {% for error in form.whichDevice.errors %}
                         <span style="color: #d60000; font-size: 15px">{{ error }}</span>
                     {% endfor %}
                 </div>

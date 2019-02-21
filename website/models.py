@@ -33,6 +33,7 @@ class ControlAndDeliberationData(db.Model):
     __tablename__ = 'control_and_deliberation_data'
     id = db.Column(db.Integer, primary_key=True)
     participantId = db.Column(db.Integer, db.ForeignKey('demographic_data.id'), nullable=False)
+    currentWebsite = db.Column(db.String(50), nullable=False)
     perceivedControlQ1 = db.Column(db.Numeric, nullable=False)
     perceivedControlQ2 = db.Column(db.Numeric, nullable=False)
     perceivedControlQ3 = db.Column(db.Numeric, nullable=False)
@@ -42,7 +43,7 @@ class ControlAndDeliberationData(db.Model):
     deliberation = db.Column(db.Numeric, nullable=False)
 
     def __repr__(self):
-        return f"controlAndDeliberationData('{self.participantId}', '{self.id}', '{self.perceivedControlQ1}', '{self.perceivedControlQ2}', '{self.perceivedControlQ3}', '{self.perceivedControlQ4}', '{self.perceivedControlQ5}', '{self.manipulationCheck}', '{self.deliberation}')"
+        return f"controlAndDeliberationData('{self.participantId}', '{self.id}', '{self.currentWebsite}', '{self.perceivedControlQ1}', '{self.perceivedControlQ2}', '{self.perceivedControlQ3}', '{self.perceivedControlQ4}', '{self.perceivedControlQ5}', '{self.manipulationCheck}', '{self.deliberation}')"
 
 
 class PrivacyConcernsData(db.Model):

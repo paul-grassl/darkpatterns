@@ -41,7 +41,7 @@ class ControlAndDeliberationForm(FlaskForm):
                         default=0,
                         )
     perceivedControlQ2 = DecimalRangeField(
-                        '2. How much control did you feel the consent form gave you over who can get access your personal information?',
+                        '2. How much control did you feel the consent form gave you over who can get access to your personal information?',
                         default=0,
                         )
     perceivedControlQ3 = DecimalRangeField(
