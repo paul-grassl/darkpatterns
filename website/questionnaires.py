@@ -64,7 +64,6 @@ class ControlAndDeliberationForm(FlaskForm):
     deliberation = DecimalRangeField(
                         '2. How much did you think about your decision before clicking on one option?',
                         default=0,
-                        places=0
                         )
     submit = SubmitField(
                         'Next'
