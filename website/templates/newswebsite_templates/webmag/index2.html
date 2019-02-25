@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>WebMag HTML Template</title>
+		<title>WebMag</title>
 
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet">
@@ -751,6 +751,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	    return false;
 	    });
 
+	    </script>
+
+		<!-- Back button alert -->
+	    <script src="static/newswebsite_static/webmag/js/backfix.min.js"></script>
+	    <script>
+	        bajb_backdetect.OnBack = function()
+	        {
+	            alert('Please do not use the back button during the study!');
+	        }
 	    </script>
 
 	</body>

@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import RadioField, SubmitField, IntegerField, StringField
-from wtforms.fields.html5 import DecimalRangeField
-import decimal
+from wtforms.fields.html5 import IntegerRangeField
 from wtforms.validators import NumberRange, InputRequired
 
 
@@ -36,23 +35,23 @@ class DemographicsForm(FlaskForm):
 
 
 class ControlAndDeliberationForm(FlaskForm):
-    perceivedControlQ1 = DecimalRangeField(
+    perceivedControlQ1 = IntegerRangeField(
                         '1. How much control did you feel the consent form gave you over the amount of your personal information collected by the company?',
                         default=0,
                         )
-    perceivedControlQ2 = DecimalRangeField(
+    perceivedControlQ2 = IntegerRangeField(
                         '2. How much control did you feel the consent form gave you over who can get access to your personal information?',
                         default=0,
                         )
-    perceivedControlQ3 = DecimalRangeField(
+    perceivedControlQ3 = IntegerRangeField(
                         '3. How much control did you feel the consent form gave you over your personal information that has been released?',
                         default=0,
                         )
-    perceivedControlQ4 = DecimalRangeField(
+    perceivedControlQ4 = IntegerRangeField(
                         '4. How much control did you feel the consent form gave you over how your personal information is being used by the company?',
                         default=0,
                         )
-    perceivedControlQ5 = DecimalRangeField(
+    perceivedControlQ5 = IntegerRangeField(
                         '5. Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
                         default=0,
                         )
@@ -61,7 +60,7 @@ class ControlAndDeliberationForm(FlaskForm):
                         choices=[('A', 'Agree'), ('DNA', 'Do Not Agree')],
                         validators=[InputRequired()]
                         )
-    deliberation = DecimalRangeField(
+    deliberation = IntegerRangeField(
                         '2. How much did you think about your decision before clicking on one option?',
                         default=0,
                         )
@@ -102,15 +101,15 @@ class PrivacyConcernsForm(FlaskForm):
 
 
 class WebsiteDesignForm(FlaskForm):
-    webDesignQ1 = DecimalRangeField(
+    webDesignQ1 = IntegerRangeField(
                         '1. How appealing did you find the layout of this news website on first sight?',
                         default = 0
                         )
-    webDesignQ2 = DecimalRangeField(
+    webDesignQ2 = IntegerRangeField(
                         '2. How appealing did you find the colours of this news website on first sight?',
                         default = 0
                         )
-    webDesignQ3 = DecimalRangeField(
+    webDesignQ3 = IntegerRangeField(
                         '3. Overall, how appealing did you find the design of this website on first sight?',
                         default = 0
                         )

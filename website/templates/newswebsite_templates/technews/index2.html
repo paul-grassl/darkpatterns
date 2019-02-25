@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TechNews - HTML and CSS Template</title>
+    <title>TechNews</title>
 
     <!-- favicon -->
     <link href="static/newswebsite_static/technews/assets/img/favicon.png" rel=icon>
@@ -1632,6 +1632,15 @@ $('a').bind("click.myDisable", function() {
 return false;
 });
 
+</script>
+
+<!-- Back button alert -->
+<script src="static/newswebsite_static/technews/assets/js/backfix.min.js"></script>
+<script>
+    bajb_backdetect.OnBack = function()
+    {
+        alert('Please do not use the back button during the study!');
+    }
 </script>
 
 </body>

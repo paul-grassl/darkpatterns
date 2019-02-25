@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Viral Story - Viral News Magazine Template</title>
+    <title>Viral Story - Viral News Magazine</title>
 
     <!-- Favicon -->
     <link rel="icon" href="static/newswebsite_static/viral/img/core-img/favicon.ico">
@@ -781,6 +781,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     return false;
     });
 
+    </script>
+
+    <!-- Back button alert -->
+    <script src="static/newswebsite_static/viral/js/backfix.min.js"></script>
+    <script>
+        bajb_backdetect.OnBack = function()
+        {
+            alert('Please do not use the back button during the study!');
+        }
     </script>
 
 </body>

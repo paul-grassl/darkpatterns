@@ -34,13 +34,13 @@ class ControlAndDeliberationData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     participantId = db.Column(db.Integer, db.ForeignKey('demographic_data.id'), nullable=False)
     currentWebsite = db.Column(db.String(50), nullable=False)
-    perceivedControlQ1 = db.Column(db.Numeric, nullable=False)
-    perceivedControlQ2 = db.Column(db.Numeric, nullable=False)
-    perceivedControlQ3 = db.Column(db.Numeric, nullable=False)
-    perceivedControlQ4 = db.Column(db.Numeric, nullable=False)
-    perceivedControlQ5 = db.Column(db.Numeric, nullable=False)
+    perceivedControlQ1 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ2 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ3 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ4 = db.Column(db.Integer, nullable=False)
+    perceivedControlQ5 = db.Column(db.Integer, nullable=False)
     manipulationCheck = db.Column(db.String(3), nullable=False)
-    deliberation = db.Column(db.Numeric, nullable=False)
+    deliberation = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f"controlAndDeliberationData('{self.participantId}', '{self.id}', '{self.currentWebsite}', '{self.perceivedControlQ1}', '{self.perceivedControlQ2}', '{self.perceivedControlQ3}', '{self.perceivedControlQ4}', '{self.perceivedControlQ5}', '{self.manipulationCheck}', '{self.deliberation}')"
