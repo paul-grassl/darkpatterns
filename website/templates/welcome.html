@@ -46,7 +46,7 @@
 
         <hr>
 
-        <form action="{{ url_for('welcome') }}" method="post">
+        <form action="{{ url_for('main.welcome') }}" method="post">
             {{ form.hidden_tag() }}
             <div class="form-group">
                 {{ form.consent.label(class='radio') }}
