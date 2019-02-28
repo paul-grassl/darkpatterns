@@ -8,16 +8,16 @@ questionnaires = Blueprint('questionnaires', __name__)
 
 # route to cover-story questionnaire
 @questionnaires.route("/newswebsitedesign", methods=['GET', 'POST'])
-def websiteDesign():
+def website_design():
     form = WebsiteDesignForm()
     if form.validate_on_submit():
         return redirect(url_for('distributors.distributor'))
-    return render_template('websiteDesign.html', title='News website design', form=form)
+    return render_template('website_design.html', title='News website design', form=form)
 
 
 # route to perceived control and deliberation form
 @questionnaires.route("/questionnaire1", methods=['GET', 'POST'])
-def controlAndDeliberation():
+def control_and_deliberation():
     nextScreenshot = session['nextScreenshot']
     currentWebsite = session['currentWebsite']
     form = ControlAndDeliberationForm()
@@ -38,13 +38,13 @@ def controlAndDeliberation():
             return redirect(url_for('distributors.distributor2'))
         else:
             return redirect(url_for('distributors.distributor2'))
-    return render_template('controlAndDeliberation.html', title='Questionnaire', form=form, screenshot=nextScreenshot)
+    return render_template('control_and_deliberation.html', title='Questionnaire', form=form, screenshot=nextScreenshot)
 
 
 # route to privacy concerns form
 # the redirect link needs to be back to SONA in the end (maybe you have to fetch the id from the incoming url in the beginning , save it to a session object and retrieve it here to redirect correctly back to SONA)
 @questionnaires.route("/questionnaire2", methods=['GET', 'POST'])
-def privacyConcerns():
+def privacy_concerns():
     form = PrivacyConcernsForm()
     if form.validate_on_submit():
         if 'anonymous_user_id' in session:
@@ -57,7 +57,7 @@ def privacyConcerns():
                                                      whichDevice=form.whichDevice.data)
             db.session.add(questionnaire2Data)
             db.session.commit()
-            return redirect(url_for('main.thankYou'))
+            return redirect(url_for('main.thank_you'))
         else:
-            return redirect(url_for('main.thankYou'))
-    return render_template('privacyConcerns.html', title='Questionnaire', form=form)
+            return redirect(url_for('main.thank_you'))
+    return render_template('privacy_concerns.html', title='Questionnaire', form=form)

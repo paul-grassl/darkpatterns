@@ -18,7 +18,7 @@ def distributor():
         print('s_randomWebsiteList:', s_randomWebsiteList)
         return redirect(url_for('news_websites.' + nextPage))
     else:
-        return redirect(url_for('distributors.distributor2'))  # redirect to next distributor which goes to different controlAndDeliberation questionnaires
+        return redirect(url_for('main.half_way'))  # redirect to next distributor which goes to different controlAndDeliberation questionnaires
     return render_template('redirecting.html', title='Redirecting')
 
 

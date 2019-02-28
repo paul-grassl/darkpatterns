@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+        <h5 class="questionnaire" style="text-align: center;">
+            You completed 50% of the study and will now be redirected to the second part, which consists of several questionnaires. Please wait.
+        </h5>
+        <script>
+            $(document).ready(function () {
+                // Handler for .ready() called.
+                window.setTimeout(function () {
+                    location.href = "http://localhost:5000/distributor2";
+                }, 3000);
+            });
+        </script>
+{% endblock content %}

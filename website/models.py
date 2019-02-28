@@ -5,6 +5,7 @@ from website import db
 class DemographicData(db.Model):
     __tablename__ = 'demographic_data'
     id = db.Column(db.Integer, primary_key=True)
+    prolificID = db.Column(db.Integer, nullable=False)
     gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     nationality = db.Column(db.String(50), nullable=False)
@@ -15,7 +16,7 @@ class DemographicData(db.Model):
     questionnaire2 = db.relationship('PrivacyConcernsData', backref='participant_bref', lazy=True)
 
     def __repr__(self):
-        return f"demographicData('{self.id}', '{self.gender}', '{self.age}', '{self.nationality}', '{self.websiteList}')"
+        return f"demographicData('{self.id}', '{self.prolificID}', '{self.gender}', '{self.age}', '{self.nationality}', '{self.websiteList}')"
 
 
 class ModalData(db.Model):
