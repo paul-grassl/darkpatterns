@@ -23,4 +23,7 @@ def create_app(config_class=Config):
     app.register_blueprint(questionnaires)
     app.register_blueprint(errors)
 
+    # with app.app_context():
+    #     db.create_all()
+
     return app

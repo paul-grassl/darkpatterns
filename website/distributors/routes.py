@@ -36,7 +36,7 @@ def distributor2():
         session['websiteList2'] = s_randomWebsiteList
         print('s_randomWebsiteList:', s_randomWebsiteList)
         print('nextScreenshot:', nextScreenshot)
-        return redirect(url_for('questionnaires.controlAndDeliberation'))
+        return redirect(url_for('questionnaires.control_and_deliberation'))
     else:
-        return redirect(url_for('questionnaires.privacyConcerns'))
+        return redirect(url_for('questionnaires.privacy_concerns'))
     return render_template('redirecting.html', title='Redirecting')
