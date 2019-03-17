@@ -1894,3 +1894,11 @@ section
 .p-body {
 	color: #5b5b5b;
 }
+
+.col-6 {
+	padding-bottom: 10px;
+}
+
+label {
+	margin-bottom: 0px;
+}

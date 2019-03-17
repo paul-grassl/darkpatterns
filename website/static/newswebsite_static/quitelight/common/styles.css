@@ -2450,3 +2450,11 @@ footer i{ font-size: 1.4em; }
     color: red;
     text-align: center;
 }
+
+.col-6 {
+	padding-bottom: 10px;
+}
+
+label {
+	margin-bottom: 0px;
+}

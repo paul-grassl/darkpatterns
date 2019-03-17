@@ -5,7 +5,7 @@ from website import db
 class DemographicData(db.Model):
     __tablename__ = 'demographic_data'
     id = db.Column(db.Integer, primary_key=True)
-    prolificID = db.Column(db.Integer, nullable=False)
+    prolificID = db.Column(db.String(24), nullable=False)
     gender = db.Column(db.String(1), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     nationality = db.Column(db.String(50), nullable=False)
