@@ -2642,3 +2642,9 @@ border: 1px solid #EAE5E5;
     color: red;
     text-align: center;
 }
+
+label {
+	display: inline-block;
+	margin-bottom: .25rem;
+	margin-top: .25rem;
+}

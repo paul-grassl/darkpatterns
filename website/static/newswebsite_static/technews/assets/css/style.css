@@ -1795,3 +1795,9 @@ section {
 .modal-title {
     color: #d6d6d6;
 }
+
+label {
+	display: inline-block;
+	margin-bottom: .25rem;
+	margin-top: .25rem;
+}

@@ -1040,3 +1040,9 @@ RESPONSIVE
     color: red;
     text-align: center;
 }
+
+label {
+	display: inline-block;
+	margin-bottom: .25rem;
+	margin-top: .25rem;
+}

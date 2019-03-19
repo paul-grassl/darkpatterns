@@ -1403,3 +1403,9 @@ textarea:focus {
     display: -ms-flexbox;
     -ms-flex-wrap: wrap;
 }
+
+label {
+	display: inline-block;
+	margin-bottom: .25rem;
+	margin-top: .25rem;
+}
