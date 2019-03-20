@@ -3,8 +3,10 @@ from flask_migrate import Migrate, MigrateCommand
 
 from website import create_app, db
 
-migrate = Migrate(create_app, db)
-manager = Manager(create_app)
+app = create_app()
+
+migrate = Migrate(app, db)
+manager = Manager(app)
 
 manager.add_command('db', MigrateCommand)
 
