@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from website.config import Config
 
 db = SQLAlchemy()
@@ -11,6 +12,7 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
 
     db.init_app(app)
+    migrate = Migrate(app, db)
 
     from website.main.routes import main
     from website.distributors.routes import distributors
@@ -22,8 +24,5 @@ def create_app(config_class=Config):
     app.register_blueprint(news_websites)
     app.register_blueprint(questionnaires)
     app.register_blueprint(errors)
-
-    # with app.app_context():
-    #     db.create_all()
 
     return app

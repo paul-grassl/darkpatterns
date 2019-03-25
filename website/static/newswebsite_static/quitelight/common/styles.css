@@ -2460,3 +2460,26 @@ label {
 	margin-bottom: .25rem;
 	margin-top: .25rem;
 }
+
+/* make radiobuttons behave the same across browsers */
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 1px solid black;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 2px;
+}
+
+input:checked {
+  border: 6px solid black;
+}
