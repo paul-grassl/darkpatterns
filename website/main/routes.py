@@ -28,7 +28,6 @@ def welcome():
             url = request.headers.get("Referer")
             parsed = urllib.parse.urlparse(url)
             session['prolificID'] = urllib.parse.parse_qs(parsed.query)['PROLIFIC_PID'][0]
-            print(session['prolificID'])
             return redirect(url_for('main.demographics'))
         else:
             return redirect(url_for('main.goodbye'))
