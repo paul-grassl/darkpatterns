@@ -8,5 +8,3 @@ stimuliDict = {
     'viral': 'screenshots/scenario 7 - aesthetic manipulation + obstruction.png',
     'webmag': 'screenshots/scenario 8 - default + aesthetic manipulation + obstruction.png'
 }
-
-# once you have the final screenshots (no more color changing etc. -> replace them in screenshots folder)

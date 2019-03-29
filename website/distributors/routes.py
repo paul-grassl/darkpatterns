@@ -15,7 +15,6 @@ def distributor():
         l_randomWebsiteList.pop(0)
         s_randomWebsiteList = json.dumps(l_randomWebsiteList)
         session['websiteList'] = s_randomWebsiteList
-        print('s_randomWebsiteList:', s_randomWebsiteList)
         return redirect(url_for('news_websites.' + nextPage))
     else:
         return redirect(url_for('main.half_way'))  # redirect to next distributor which goes to different controlAndDeliberation questionnaires
@@ -34,8 +33,6 @@ def distributor2():
         l_randomWebsiteList.pop(0)
         s_randomWebsiteList = json.dumps(l_randomWebsiteList)
         session['websiteList2'] = s_randomWebsiteList
-        print('s_randomWebsiteList:', s_randomWebsiteList)
-        print('nextScreenshot:', nextScreenshot)
         return redirect(url_for('questionnaires.control_and_deliberation'))
     else:
         return redirect(url_for('questionnaires.privacy_concerns'))

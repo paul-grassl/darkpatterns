@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from website.config import Config
 
 db = SQLAlchemy()
@@ -12,7 +11,6 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
 
     db.init_app(app)
-    migrate = Migrate(app, db)
 
     from website.main.routes import main
     from website.distributors.routes import distributors
