@@ -1,7 +1,22 @@
 {% extends 'layout.html' %}
 {% block content %}
-        <h5 class="questionnaire"  style="text-align: center;">
-            Thank you for participating in this study. You can close this window now.
+    <div class="questionnaire">
+        <h5 style="text-align: center;">
+            Thank you for participating in this study. You will be redirected to Prolific in a few seconds...
         </h5>
+        <p style="text-align: center;">
+            Debriefing:<br>
+            The present study tested how different types of consent statements affect your privacy decisions.
+        </p>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Handler for .ready() called.
+            window.setTimeout(function () {
+                location.href = "https://app.prolific.ac/submissions/complete?cc=WYY8JWQA";
+            }, 4000);
+        });
+    </script>
+
 {% endblock content %}

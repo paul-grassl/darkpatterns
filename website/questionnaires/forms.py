@@ -42,17 +42,17 @@ class ControlAndDeliberationForm(FlaskForm):
 class PrivacyConcernsForm(FlaskForm):
     privacyConcernsQ1 = RadioField(
                         '1. Compared to others I’m more sensitive about the way online companies handle my personal information',
-                        choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat Disagree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
                         validators=[InputRequired()]
                         )
     privacyConcernsQ2 = RadioField(
                         '2. To me, it is the most important thing to keep my privacy intact from online companies',
-                        choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat Disagree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
                         validators=[InputRequired()]
                         )
     privacyConcernsQ3 = RadioField(
                         '3. I’m concerned about threats to my personal privacy today',
-                        choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat Disagree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
                         validators=[InputRequired()]
                         )
     correctDisplayed = RadioField(
