@@ -26,13 +26,14 @@ def control_and_deliberation():
             participant = DemographicData.query.get(session['anonymous_user_id'])
             questionnaire1Data = ControlAndDeliberationData(participant_bref=participant,
                                                             currentWebsite=currentWebsite,
+                                                            manipulationCheck1=form.manipulationCheck1.data,
+                                                            manipulationCheck2=form.manipulationCheck2.data,
+                                                            deliberation=form.deliberation.data,
                                                             perceivedControlQ1=form.perceivedControlQ1.data,
                                                             perceivedControlQ2=form.perceivedControlQ2.data,
                                                             perceivedControlQ3=form.perceivedControlQ3.data,
                                                             perceivedControlQ4=form.perceivedControlQ4.data,
-                                                            perceivedControlQ5=form.perceivedControlQ5.data,
-                                                            manipulationCheck=form.manipulationCheck.data,
-                                                            deliberation=form.deliberation.data)
+                                                            perceivedControlQ5=form.perceivedControlQ5.data)
             db.session.add(questionnaire1Data)
             db.session.commit()
             return redirect(url_for('distributors.distributor2'))
@@ -54,6 +55,7 @@ def privacy_concerns():
                                                      privacyConcernsQ2=form.privacyConcernsQ2.data,
                                                      privacyConcernsQ3=form.privacyConcernsQ3.data,
                                                      correctDisplayed=form.correctDisplayed.data,
+						     browserPlugin=form.browserPlugin.data,
                                                      whichDevice=form.whichDevice.data)
             db.session.add(questionnaire2Data)
             db.session.commit()

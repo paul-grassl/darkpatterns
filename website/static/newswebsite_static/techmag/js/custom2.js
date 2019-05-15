@@ -15,7 +15,7 @@
 $(document).ready(function () {
     // Handler for .ready() called.
     window.setTimeout(function () {
-        location.href = "http://localhost:5000/newswebsitedesign";
+        location.href = "http://elara.science.ru.nl/newswebsitedesign";
     }, 3000);
 });
 

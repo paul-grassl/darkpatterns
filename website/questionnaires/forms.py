@@ -25,13 +25,18 @@ class ControlAndDeliberationForm(FlaskForm):
                         '5. Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
                         default=0,
                         )
-    manipulationCheck = RadioField(
-                        '1. Which option did you choose?',
-                        choices=[('A', 'Agree'), ('DNA', 'Do Not Agree')],
+    manipulationCheck1 = RadioField(
+                        '1. Did you read the consent form information before clicking on one option?',
+                        choices=[('1', 'Read it completely'), ('2', 'Skimmed it'), ('3', 'Did not read it at all')],
+                        validators=[InputRequired()]
+                        )
+    manipulationCheck2 = RadioField(
+                        '2. Which option did you choose?',
+                        choices=[('A', 'Agree'), ('DNA', 'Do Not Agree'), ('CR', 'I cannot remember')],
                         validators=[InputRequired()]
                         )
     deliberation = IntegerRangeField(
-                        '2. How much did you think about your decision before clicking on one option?',
+                        '3. How much did you think about your decision before clicking on one option?',
                         default=0,
                         )
     submit = SubmitField(
@@ -42,17 +47,17 @@ class ControlAndDeliberationForm(FlaskForm):
 class PrivacyConcernsForm(FlaskForm):
     privacyConcernsQ1 = RadioField(
                         '1. Compared to others I’m more sensitive about the way online companies handle my personal information',
-                        choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat Disagree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
                         validators=[InputRequired()]
                         )
     privacyConcernsQ2 = RadioField(
                         '2. To me, it is the most important thing to keep my privacy intact from online companies',
-                        choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat Disagree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
                         validators=[InputRequired()]
                         )
     privacyConcernsQ3 = RadioField(
                         '3. I’m concerned about threats to my personal privacy today',
-                        choices=[('1', 'Strongly Agree'), ('2', 'Agree'), ('3', 'Somewhat Agree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Disagree'), ('6', 'Disagree'), ('7', 'Strongly Disagree')],
+                        choices=[('1', 'Strongly Disagree'), ('2', 'Disagree'), ('3', 'Somewhat Disagree'), ('4', 'Neither Agree nor Disagree'), ('5', 'Somewhat Agree'), ('6', 'Agree'), ('7', 'Strongly Agree')],
                         validators=[InputRequired()]
                         )
     correctDisplayed = RadioField(
@@ -60,6 +65,11 @@ class PrivacyConcernsForm(FlaskForm):
                        choices=[('Y', 'Yes, all of them'), ('N', 'No, not all of them')],
                        validators=[InputRequired()]
                        )
+    browserPlugin = RadioField(
+                        'Do you have any plug-ins installed in your browser which handle/delete cookies and/or do you regularly (at least once a week) delete cookies?',
+                        choices=[('Y', 'Yes'), ('N', 'No')],
+                        validators=[InputRequired()]
+                        )
     whichDevice = RadioField(
                        'On which device did you do the study?',
                        choices=[('PC', 'PC'), ('Tablet', 'Tablet'), ('Phone', 'Phone')],

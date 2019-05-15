@@ -2914,10 +2914,6 @@ select[multiple], select[size] {
     height: auto
 }
 
-input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px
-}
 
 output {
     display: block;
