@@ -25,13 +25,18 @@ class ControlAndDeliberationForm(FlaskForm):
                         '5. Overall, how much did the consent form made you feel in control over your personal information provided to the company?',
                         default=0,
                         )
-    manipulationCheck = RadioField(
-                        '1. Which option did you choose?',
-                        choices=[('A', 'Agree'), ('DNA', 'Do Not Agree')],
+    manipulationCheck1 = RadioField(
+                        '1. Did you read the consent form information before clicking on one option?',
+                        choices=[('1', 'Read it completely'), ('2', 'Skimmed it'), ('3', 'Did not read it at all')],
+                        validators=[InputRequired()]
+                        )
+    manipulationCheck2 = RadioField(
+                        '2. Which option did you choose?',
+                        choices=[('A', 'Agree'), ('DNA', 'Do Not Agree'), ('CR', 'I cannot remember')],
                         validators=[InputRequired()]
                         )
     deliberation = IntegerRangeField(
-                        '2. How much did you think about your decision before clicking on one option?',
+                        '3. How much did you think about your decision before clicking on one option?',
                         default=0,
                         )
     submit = SubmitField(
@@ -60,6 +65,11 @@ class PrivacyConcernsForm(FlaskForm):
                        choices=[('Y', 'Yes, all of them'), ('N', 'No, not all of them')],
                        validators=[InputRequired()]
                        )
+    browserPlugin = RadioField(
+                        'Do you have any plug-ins installed in your browser which handle/delete cookies and/or do you regularly (at least once a week) delete cookies?',
+                        choices=[('Y', 'Yes'), ('N', 'No')],
+                        validators=[InputRequired()]
+                        )
     whichDevice = RadioField(
                        'On which device did you do the study?',
                        choices=[('PC', 'PC'), ('Tablet', 'Tablet'), ('Phone', 'Phone')],

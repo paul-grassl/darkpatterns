@@ -2,21 +2,16 @@
 {% block content %}
     <div class="questionnaire">
         <h5 style="text-align: center;">
-            Thank you for participating in this study. You will be redirected to Prolific in a few seconds...
+            Thank you for participating in this study. Please click the button below to finish the study and get back to Prolific.
         </h5>
         <p style="text-align: center;">
-            Debriefing:<br>
-            The present study tested how different types of consent statements affect your privacy decisions.
+            <b>Debriefing:</b><br>
+            The present study tested how different types of consent statements affect your privacy decisions.<br>
+            All shown news websites including consent statements were hypothetical.
         </p>
+        <div class="buttonHolder">
+            <a href="https://app.prolific.ac/submissions/complete?cc=WYY8JWQA" class="btn btn-outline-info">Back to Prolific</a>
+        </div>
     </div>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            // Handler for .ready() called.
-            window.setTimeout(function () {
-                location.href = "https://app.prolific.ac/submissions/complete?cc=WYY8JWQA";
-            }, 4000);
-        });
-    </script>
 
 {% endblock content %}

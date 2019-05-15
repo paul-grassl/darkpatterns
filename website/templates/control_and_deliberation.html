@@ -12,56 +12,64 @@
                 <h5 class="top-space">Part 1</h5>
                 <!-- QUESTION 1 (PART 1) -->
                 <div class="form-group">
-                    {{ form.perceivedControlQ1.label }}<br>
-                    <span>None at all</span>
-                    {{ form.perceivedControlQ1 }}
-                    <span>Complete</span>
+                    {{ form.manipulationCheck1.label }}
+                    {{ form.manipulationCheck1 }}
+                    {% for error in form.manipulationCheck1.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
+                    {% endfor %}
                 </div>
                 <!-- QUESTION 2 (PART 1) -->
                 <div class="form-group">
-                    {{ form.perceivedControlQ2.label }}<br>
-                    <span>None at all</span>
-                    {{ form.perceivedControlQ2 }}
-                    <span>Complete</span>
+                    {{ form.manipulationCheck2.label }}
+                    {{ form.manipulationCheck2 }}
+                    {% for error in form.manipulationCheck2.errors %}
+                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
+                    {% endfor %}
                 </div>
                 <!-- QUESTION 3 (PART 1) -->
                 <div class="form-group">
-                    {{ form.perceivedControlQ3.label }}<br>
+                    {{ form.deliberation.label }}<br>
                     <span>None at all</span>
-                    {{ form.perceivedControlQ3 }}
-                    <span>Complete</span>
-                </div>
-                <!-- QUESTION 4 (PART 1) -->
-                <div class="form-group">
-                    {{ form.perceivedControlQ4.label }}<br>
-                    <span>None at all</span>
-                    {{ form.perceivedControlQ4 }}
-                    <span>Complete</span>
-                </div>
-                <!-- QUESTION 5 (PART 1) -->
-                <div class="form-group">
-                    {{ form.perceivedControlQ5.label }}<br>
-                    <span>None at all</span>
-                    {{ form.perceivedControlQ5 }}
-                    <span>Complete</span>
+                    {{ form.deliberation }}
+                    <span>A great deal</span>
                 </div>
             </fieldset>
             <fieldset class="form-group">
                 <h5>Part 2</h5>
                 <!-- QUESTION 1 (PART 2) -->
                 <div class="form-group">
-                    {{ form.manipulationCheck.label }}
-                    {{ form.manipulationCheck }}
-                    {% for error in form.manipulationCheck.errors %}
-                        <span style="color: #d60000; font-size: 15px">{{ error }}</span>
-                    {% endfor %}
+                    {{ form.perceivedControlQ1.label }}<br>
+                    <span>None at all</span>
+                    {{ form.perceivedControlQ1 }}
+                    <span>Complete</span>
                 </div>
                 <!-- QUESTION 2 (PART 2) -->
                 <div class="form-group">
-                    {{ form.deliberation.label }}<br>
+                    {{ form.perceivedControlQ2.label }}<br>
                     <span>None at all</span>
-                    {{ form.deliberation }}
-                    <span>A great deal</span>
+                    {{ form.perceivedControlQ2 }}
+                    <span>Complete</span>
+                </div>
+                <!-- QUESTION 3 (PART 2) -->
+                <div class="form-group">
+                    {{ form.perceivedControlQ3.label }}<br>
+                    <span>None at all</span>
+                    {{ form.perceivedControlQ3 }}
+                    <span>Complete</span>
+                </div>
+                <!-- QUESTION 4 (PART 2) -->
+                <div class="form-group">
+                    {{ form.perceivedControlQ4.label }}<br>
+                    <span>None at all</span>
+                    {{ form.perceivedControlQ4 }}
+                    <span>Complete</span>
+                </div>
+                <!-- QUESTION 5 (PART 2) -->
+                <div class="form-group">
+                    {{ form.perceivedControlQ5.label }}<br>
+                    <span>None at all</span>
+                    {{ form.perceivedControlQ5 }}
+                    <span>Complete</span>
                 </div>
             </fieldset>
             <div class="form-group">
